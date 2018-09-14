@@ -3,10 +3,10 @@
 	<e:Image source="frame_json.frame_top_bg" top="0" left="0"/>
 	<e:Label text="最大连击：" x="30" y="12" fontFamily="Microsoft YaHei" bold="true" textColor="0x632b2b"/>
 	<e:Label id="txt_maxCobom" text="0" x="167" y="14" fontFamily="Microsoft YaHei" bold="true" textColor="0x632B2B"/>
-	<e:Button id="btn_back" label="" right="5" top="4" touchChildren="false">
+	<e:Button id="btn_back" label="" touchChildren="false" scaleX="0.8" scaleY="0.8" top="0" right="0">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
-			<e:Image width="100%" height="100%" source="button_json.btn_close" source.down="button_json.btn_close" source.disabled="button_json.btn_close"/>
+			<e:Image width="100%" height="100%" source="button_json.btn_back" source.down="button_json.btn_back" source.disabled="button_json.btn_back"/>
 			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
 			</e:Skin>
 		</e:skinName>

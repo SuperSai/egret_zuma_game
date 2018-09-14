@@ -9,6 +9,7 @@ enum ViewConst {
 	Task,
 	Daily,
 	Mail,
+	Level,
 
 	Battle = 20000,
 	BattleUI,

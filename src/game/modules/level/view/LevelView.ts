@@ -1,0 +1,4 @@
+class LevelView {
+	public constructor() {
+	}
+}

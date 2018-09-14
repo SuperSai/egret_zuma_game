@@ -1,4 +1,6 @@
 {"file":"frame.png","frames":{
-"new_frame_titile":{"x":0,"y":909,"w":437,"h":69,"offX":0,"offY":0,"sourceW":437,"sourceH":69},
 "frame_color_bg":{"x":0,"y":0,"w":681,"h":798,"offX":0,"offY":0,"sourceW":681,"sourceH":798},
-"frame_top_bg":{"x":0,"y":802,"w":720,"h":103,"offX":0,"offY":0,"sourceW":720,"sourceH":104}}}
+"frame_icon_bg_01":{"x":685,"y":85,"w":260,"h":80,"offX":0,"offY":0,"sourceW":260,"sourceH":80},
+"frame_icon_bg_02":{"x":685,"y":0,"w":257,"h":81,"offX":0,"offY":0,"sourceW":257,"sourceH":81},
+"frame_top_bg":{"x":0,"y":802,"w":720,"h":103,"offX":0,"offY":0,"sourceW":720,"sourceH":104},
+"new_frame_titile":{"x":0,"y":909,"w":437,"h":69,"offX":0,"offY":0,"sourceW":437,"sourceH":69}}}

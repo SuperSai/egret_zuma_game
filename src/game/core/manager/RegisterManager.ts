@@ -12,5 +12,7 @@ class RegisterManager extends BaseClass {
 		App.ControllerManager.register(ControllerConst.Loading, new LoadingController());
 		App.ControllerManager.register(ControllerConst.Login, new LoginController());
 		App.ControllerManager.register(ControllerConst.Battle, new BattleController());
+		App.ControllerManager.register(ControllerConst.Hall, new HallController());
+		App.ControllerManager.register(ControllerConst.Level, new LevelController());
 	}
 }

@@ -1,0 +1,4 @@
+{"file":"hall.png","frames":{
+"hall_bg":{"x":0,"y":0,"w":210,"h":1280,"offX":0,"offY":0,"sourceW":210,"sourceH":1280},
+"hall_bg_down":{"x":214,"y":0,"w":720,"h":203,"offX":0,"offY":0,"sourceW":720,"sourceH":203},
+"hall_icon":{"x":214,"y":207,"w":196,"h":231,"offX":0,"offY":0,"sourceW":196,"sourceH":231}}}
