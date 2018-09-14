@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="CurrencyViewSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group x="0" y="0">
+		<e:Group x="0" y="0">
+			<e:Image source="frame_json.frame_icon_bg_02" scaleX="0.8" scaleY="0.8" x="30" y="9"/>
+			<e:Image source="icon_json.icon_heart" x="0" y="0" scaleX="0.7" scaleY="0.7"/>
+			<e:Label id="btn_heartCount" text="0000" fontFamily="Microsoft YaHei" bold="true" size="40" right="18" verticalCenter="0" textAlign="right"/>
+		</e:Group>
+		<e:Group x="410" y="0">
+			<e:Image source="frame_json.frame_icon_bg_01" x="28" scaleX="0.8" scaleY="0.8" y="10"/>
+			<e:Image source="icon_json.icon_gold" y="0" scaleX="0.7" scaleY="0.7"/>
+			<e:Label id="btn_goldCount" text="0000" fontFamily="Microsoft YaHei" bold="true" textAlign="right" size="40" right="18" verticalCenter="0"/>
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout horizontalAlign="left" verticalAlign="middle" gap="20"/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

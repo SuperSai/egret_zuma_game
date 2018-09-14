@@ -41,15 +41,22 @@ var BattleUIView = (function (_super) {
         _super.prototype.addEvents.call(this);
         var self = this;
         self.registerFunc(BattleConst.UPDATE_MAXCOBOM, self.onUpdateMaxCobom, self);
+        self.btn_back.addEventListener(egret.TouchEvent.TOUCH_TAP, self.onBackHall, self);
     };
     BattleUIView.prototype.removeEvents = function () {
         _super.prototype.removeEvents.call(this);
         var self = this;
+        self.btn_back.removeEventListener(egret.TouchEvent.TOUCH_TAP, self.onBackHall, self);
     };
     /** 更新最大连击数 */
     BattleUIView.prototype.onUpdateMaxCobom = function (maxCobom) {
         var self = this;
         self.txt_maxCobom.text = maxCobom + "";
+    };
+    /** 返回大厅 */
+    BattleUIView.prototype.onBackHall = function () {
+        var self = this;
+        App.SceneManager.runScene(SceneConsts.HALL);
     };
     /** 面板关闭执行函数，用于子类继承 */
     BattleUIView.prototype.close = function () {

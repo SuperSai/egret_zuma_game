@@ -9,7 +9,7 @@
 			"name": "battle"
 		},
 		{
-			"keys": "icons_json",
+			"keys": "hall_json",
 			"name": "hall"
 		}
 	],
@@ -33,10 +33,10 @@
 			"subkeys": "device"
 		},
 		{
-			"url": "cn/asset/atlas/hall/icons.json",
+			"url": "cn/asset/atlas/hall/hall.json",
 			"type": "sheet",
-			"name": "icons_json",
-			"subkeys": "icons"
+			"name": "hall_json",
+			"subkeys": "hall_bg,hall_bg_down,hall_icon"
 		}
 	]
 }

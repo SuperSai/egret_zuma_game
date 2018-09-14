@@ -7,6 +7,8 @@ var SkinName = (function () {
     SkinName.LoadingUISkin = "resource/skins/loading/LoadingUISkin.exml";
     SkinName.LoginSkin = "resource/skins/login/LoginSkin.exml";
     SkinName.BattleUIViewSkin = "resource/skins/battle/BattleUIViewSkin.exml";
+    SkinName.CurrencyViewSkin = "resource/skins/hall/CurrencyViewSkin.exml";
+    SkinName.HallViewSkin = "resource/skins/hall/HallViewSkin.exml";
     return SkinName;
 }());
 __reflect(SkinName.prototype, "SkinName");

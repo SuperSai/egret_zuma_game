@@ -8,4 +8,5 @@ enum ControllerConst {
 	Factory,
 	Task,
 	Battle,
+	Level
 }

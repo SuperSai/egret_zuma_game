@@ -52,6 +52,10 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
+declare class CurrencyViewSkin extends eui.Skin{
+}
+declare class HallViewSkin extends eui.Skin{
+}
 declare class LoadingUISkin extends eui.Skin{
 }
 declare class LoginSkin extends eui.Skin{

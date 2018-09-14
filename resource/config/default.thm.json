@@ -30,6 +30,8 @@
 		"resource/skins/eui_skins/ToggleSwitchSkin.exml",
 		"resource/skins/eui_skins/VScrollBarSkin.exml",
 		"resource/skins/eui_skins/VSliderSkin.exml",
+		"resource/skins/hall/CurrencyViewSkin.exml",
+		"resource/skins/hall/HallViewSkin.exml",
 		"resource/skins/loading/LoadingUISkin.exml",
 		"resource/skins/login/LoginSkin.exml"
 	],
