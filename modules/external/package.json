@@ -1,0 +1,16 @@
+{
+	"name": "external",
+	"version": "5.0.12",
+	"modules": [
+		{
+			"name": "external",
+			"description": "external interface dev",
+			"files": [
+				"external.min.js",
+				"external.d.ts",
+                "external.js"
+			],
+			"root": "src"
+		}
+	]
+}

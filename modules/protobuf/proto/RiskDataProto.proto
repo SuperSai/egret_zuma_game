@@ -1,0 +1,47 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "RiskDataProtoMsg";
+
+// 冒险数据 106 ====>服务器推送
+message RiskDataMsg {
+	required int32 darkRitualNum = 1; // 当前世界使用的黑暗仪式次数
+	required string totalClickNum = 2; // 历史总点击次数
+	required int32 secondClickNum = 3; // 历史每秒最高点击次数
+	required string totalCriticalClicks = 4; // 暴击点击总数
+	required int32 secondCriticalClicks = 5; // 每秒最大暴击次数
+	required string totalGold = 6; // 总金币数
+	required string heroSoulsTotalSpend = 7; // 已使用英魂数
+	required int32 killMonster = 8; // 玩家杀死的所有小怪总数
+	required int32 killBoss = 9; // 玩家杀死的所有BOSS总数
+	required int32 killBoxMonster = 10; // 击杀宝箱总数
+	required int32 rebirthNum = 11; // 总转生次数
+	required int32 mercenaryQuality = 12; // 玩家获得过的最高雇佣兵品质
+	required int32 mercenaryLevel = 13; // 玩家的雇佣兵达到过的最高等级
+	required int32 mercenaryTotalNum = 14; // 玩家获得过的雇佣兵总数
+	required int32 mercenaryReviveNum = 15; // 雇佣兵总复活次数
+	required int32 diamondTaskNum = 16; // 钻石任务次数
+	required int32 heroSoulsTaskNum = 17; // 英魂任务次数
+	required int32 equipTaskNum = 18; // 装备任务次数
+	required int32 goldTaskNum = 19; // 金币任务次数
+	required int32 skillTaskNum = 20; // 技能任务次数
+	required int32 missionMaxNum = 21; // 历史最高关卡
+	required int32 darkRitualTotalNum = 22; // 黑暗仪式总次数
+	required int32 equipTotalNum = 23; // 玩家获得的总装备数
+	required int32 TotalOnlineTime = 24; // 总在线时长
+}
+
+// 转生数据 107 ====> 服务器推送
+message RebirthDataListMsg {
+	repeated RebirthDataMsg list = 1;
+}
+
+message RebirthDataMsg {
+	required int32 Number = 1;	//次数
+	required int32 GameTime = 2; //游戏时间
+	required int32 MissionNum = 3; //最大关卡数
+	required string HeroSouls = 4; //获得英魂数
+}
+
+// 有效转生次数 120 ====> 服务器推送
+// 协议体: CommonMsg
+// 参数说明：IntPar1:次数

@@ -1,0 +1,38 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "BagProtoMsg";
+
+// 物品列表 250   =====>服务器推送
+message ItemListMsg {
+	repeated ItemInfoMsg itemList = 1;   // 背包中的物品
+}
+
+// 物品信息
+message ItemInfoMsg{
+	required int32 itemId = 2;    // 物品配置id
+	required string num = 3;       // 物品数量
+}
+
+// 物品更新251   =====>服务器推送
+// 协议结构：ItemInfoMsg
+
+// 出售物品:250, 使用物品:252     <===客户端请求
+message ItemMsgCS{
+	required int32 itemId = 1; // 物品id
+	required string num = 2;    // 物品数量
+}
+
+// 出售物品:251  <===客户端请求
+message ItemMsgListCS{
+	repeated ItemMsgCS list = 1;// 出售物品列表
+}
+
+// 购买物品:251  <===客户端请求
+message ShopMsgCS{
+	required int32 itemId = 1;  // 物品Id
+	optional int32 time = 2;  // 时间
+}
+
+// 使用道具 900 <======== 客户端请求
+// 协议体 : CommonMsg
+// 参数: IntPar1: itemId

@@ -1,0 +1,4 @@
+﻿{
+"titles":["musicID","type","desc","file","loop","volume"],
+"data":[[10001,1,"发射！","se/se_storage_001.mp3",1,1]]
+}

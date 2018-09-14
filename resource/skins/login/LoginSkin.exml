@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LoginSkin" width="720" height="1280" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="bgImg" scale9Grid="85,396,511,148" left="0" right="0" top="0" bottom="0" source="loadingBg"/>
+	<e:Image source="login_json.login_name_icon" y="690" horizontalCenter="0"/>
+	<e:Button id="btn_enter" label="" y="894" horizontalCenter="0" name="btn_enter_1#1" touchChildren="false">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="login_json.login_startBtn" source.down="login_json.login_startBtn" source.disabled="login_json.login_startBtn"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="btn_random" label="" y="742.5" right="78" name="btn_random_1#1" touchChildren="false">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="login_json.login_saizi" source.down="login_json.login_saizi" source.disabled="login_json.login_saizi"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:EditableText id="txt_input" width="288" height="71.21" y="751.04" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="19" fontFamily="Microsoft YaHei" bold="true" textAlign="center" verticalAlign="middle" size="40" prompt="请输入角色名" promptColor="0x000000" textColor="0x000000"/>
+</e:Skin>

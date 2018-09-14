@@ -1,0 +1,22 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "RankInfoMsg";
+
+// 玩家排行榜信息800  =====>服务器推送
+message RankMsg{
+	repeated PlayerMsg playerList = 1;   // 玩家列表
+	repeated int32 awardList = 2;        // 已领取的奖励名次
+	required int32 overNum = 3;          // 超越人数
+}
+
+// 玩家信息
+message PlayerMsg {
+	required int32 playerId = 1; // 玩家id
+	required int32 missionId = 2; // 关卡id
+	required string nickName= 3; // 昵称
+	required string headPic = 4; // 头像
+}
+
+// 领取超越奖励 800 =====> 客户端请求
+// 协议体：CommonMsg
+// 参数说明：intPar1:超越人数

@@ -1,0 +1,48 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "GameProtoMsg";
+
+// 游戏结算:100    <====客户端请求
+message GameOverReqMsg {
+	required int32 missionId = 1;    // 关卡id
+	required int32 process = 2;      // 关卡进度
+	required string gold = 3;        // 获得的金币
+	required string clickNum = 4;     // 点击次数
+	required string dps = 5;          // 秒伤
+	required string clickHurt = 6;    // 点击伤害
+	required string monsterHp = 7;    // 怪的血量
+	required int32 secondClickNum = 8; //每秒最大点击数
+	required string criticalClickNum = 9; //暴击总数
+	required int32 secondCriticalClickNum = 10; //每秒最大暴击数
+	required string heroSouls = 11;  //获得英魂数量
+	required int32 monsterNum = 12;  //怪物数
+	required int32 bossNum = 13;  //boss数量
+	required int32 boxMonsterNum = 14;  //宝箱怪数量
+}
+
+// 拾取金币:101    <====客户端请求
+// 协议体：CommonMsg
+// 参数说明：strPar1:金币数量
+
+// 时光流逝关卡同步 47 =====>服务器推送
+// 协议体: CommonMsg
+// 参数说明：intPar1: 关卡id
+
+// 离线奖励:102    <====客户端请求
+// 协议体：
+// 参数说明：
+
+// 离线奖励:111  ====>服务器推送
+message HandleOfflineAwardMsg {
+	required int32 missionNum = 1;    // 关卡id
+	required string goldNum = 2;        // 获得的金币
+	required string heroSouls = 3;        // 获得的英魂
+}
+
+// 领取金身:103    <====客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: heroId
+
+// 金身列表:115    ====>服务端推送
+// 协议体: CommonMsg
+// 参数说明：strPar1: 金身列表

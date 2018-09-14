@@ -1,0 +1,71 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "MecenaryProtoMsg";
+
+// 雇佣兵列表 300；获得新的雇佣兵 303  =====>服务器推送
+message MercenaryDataListMsg {
+	repeated MercenaryDataMsg list = 1;
+}
+
+// 单个雇佣兵更新  301   =====>服务器推送
+message MercenaryDataMsg {
+	required int32 id = 1;                  // 唯一id
+	required int32 mercenaryId = 2;         // 配置id
+	required string name = 3;        		// 昵称
+	repeated int32 attributeIdList = 4;     // 属性id列表
+	required int32 level = 5;        		// 等级
+	required int32 exp = 6;        			// 经验
+	required int32 curTaskId = 7;        	// 正在做的任务
+	repeated MercenaryTaskMsg taskList = 8; // 任务列表
+	required int32 lifeNum = 9;        	    // 生命数
+	required int32 leftTime = 10;        	// 任务剩余时间，单位毫秒
+	required string revieveTime = 11;       // 复活时间点（生命为0的时候才用到）
+	required int32 index = 12;        	    // 位置
+	required bool isNewMercenary = 13;     // 是否是新佣兵
+}
+
+// 可接的任务信息
+message MercenaryTaskMsg {
+	required int32 taskId = 1;                  // 任务id
+	required int32 useTime = 2;                 // 任务时长（单位毫秒）
+	optional double rate = 3;                   // 奖励比率
+	optional string gold = 4;                   // 金币
+	optional double levelRate = 5;              // 等级加成
+}
+
+
+// 上/下阵 400  ====>客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 雇佣兵唯一id
+// 参数说明：intPar2: 位置
+
+// 出任务 401  ====>客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 雇佣兵唯一id
+// 参数说明：intPar1: 任务id
+
+// 领取奖励 402  ====>客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 雇佣兵唯一id
+
+// 复活 403  ====>客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 雇佣兵唯一id
+// 参数说明：boolPar1: true-钻石复活 false-自然复活
+
+// 吞噬 404  ====>客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 雇佣兵唯一id（主动吞噬方）
+// 参数说明：strPar1: 雇佣兵唯一id列表（被吞噬方），用“#”隔开
+
+// 被吞噬的雇佣兵 302  =====>服务器推送
+// 协议体: CommonMsg
+// 参数说明：intPar1: 雇佣兵唯一id
+
+// 替换 405  ====>客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 主动替换的雇佣兵
+// 参数说明：intPar2: 被替换的雇佣兵
+
+// 刷新佣兵列表 406  ====>客户端请求
+// 协议体: 无

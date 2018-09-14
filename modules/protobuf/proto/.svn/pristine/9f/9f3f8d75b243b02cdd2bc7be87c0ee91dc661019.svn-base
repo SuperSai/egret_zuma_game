@@ -1,0 +1,32 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "LoginInfoMsg";
+
+// 领取在线奖励:651   <===客户端请求
+// 协议结构：空
+
+// 玩家在线奖励消息   702 =====>服务器推送
+message PlayerOnlineAwardMsg {
+	required string coodTime = 1; // 冷却时间（毫秒时间戳）1501121121
+	required int32 onlineAwardNum = 2; //吉祥物奖励次数
+}
+
+
+// 领取累计签到奖励:653   <===客户端请求
+// 协议结构：空
+
+
+// 累计登陆信息   700 =====>服务器推送
+message PlayerMonthLoginMsg {
+	required int32 loginDayNum = 1; // 连续登陆的天数
+	repeated int32 awardState = 4;  // 30天的奖励领取状态数组索引： 0-第一天状态 、1-第二天状态 、2-第三天状态。。。。
+	required string flushTime = 5;  // 明天刷新的时间
+}
+
+// 查看吉祥物奖励:658   <===客户端请求
+// 协议结构：空
+
+// 当前吉祥物奖励展示 :704   =====>服务器推送
+// 协议体：CommonMsg
+// 参数说明：intPar1:物品id
+// 参数说明：strPar1:物品数量

@@ -1,0 +1,15 @@
+{
+	"groups": [
+		{
+			"keys": "json_zip",
+			"name": "formJson"
+		}
+	],
+	"resources": [
+		{
+			"url": "cn/json/json.zip",
+			"type": "bin",
+			"name": "json_zip"
+		}
+	]
+}

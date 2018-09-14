@@ -1,0 +1,70 @@
+package protocol;
+
+option java_package = "com.game.protobuf";
+option java_outer_classname = "FriendProtoMsg";
+
+// 玩家玩家列表  550   &玩家好友申请列表 552  =====>服务器推送
+message FriendInfoListMsg {
+	repeated FriendInfoMsg list = 1;
+}
+
+// 好友信息 551      &单个好友申请  553  =====>服务器推送
+message FriendInfoMsg {
+	required int32 friendId = 1; // 好友id
+	required string nickName = 2; // 昵称
+	required string headPic = 3; // 头像
+	required float distance = 4; //距离
+    required bool online = 5; //是否在线
+    required int32 sex = 6; //性别
+	required int32 age = 7; //年龄
+	required string constellation = 8; //星座
+	required string signature = 9; //个性签名
+}
+
+//展示最近联系的人     558     ========>服务器推送
+message FriendRecentListMsg{
+	repeated FriendInfoMsg list=1;
+}
+
+
+//展示附近的人     557     ========>服务器推送
+message FriendNearbyListMsg {
+	repeated FriendInfoMsg list = 1;
+}
+
+//展示附近的人：205   <===客户端请求
+
+//最近联系的人：206   <===客户端请求
+
+//设置好友是否是最爱：207   <===客户端请求
+// 协议体：CommonMsg
+// 参数说明：boolPar1: 设置是否最爱
+// 参数说明：intPar1: 好友id
+
+
+//设置好友是否最爱：559 ======>服务器推送
+// 协议体：CommonMsg
+// 参数说明：intPar1:好友id
+// 参数说明:boolPar1:是否最爱
+
+// 被动方 好友删除指令 554 ====>服务器推送
+// 协议体：CommonMsg
+// 参数说明：intPar1:解除好友的玩家id
+
+// 好友申请：203   <===客户端请求
+// 协议体：CommonMsg
+// 参数说明：intPar1:好友的玩家id
+
+// 处理好友申请：204   <===客户端请求
+// 协议体：CommonMsg
+// 参数说明：intPar1:好友的玩家id
+// 参数说明：boolPar1:同意或拒绝
+
+// 申请删除 556 ====>服务器推送
+// 协议体：CommonMsg
+// 参数说明：intPar1:删除的申请好友id
+
+// 删除好友：202   <===客户端请求
+// 协议体：CommonMsg
+// 参数说明：intPar1:好友的玩家id
+

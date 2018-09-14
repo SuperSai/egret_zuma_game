@@ -1,0 +1,25 @@
+{
+	"groups": [
+		{
+			"keys": "ui_bao01_tex_png,ui_bao01_tex_json,ui_bao01_ske_json",
+			"name": "ui_bao01"
+		}
+	],
+	"resources": [
+		{
+			"url": "common/animation/bone/ui_bao01/ui_bao01_tex.png",
+			"type": "image",
+			"name": "ui_bao01_tex_png"
+		},
+		{
+			"url": "common/animation/bone/ui_bao01/ui_bao01_tex.json",
+			"type": "json",
+			"name": "ui_bao01_tex_json"
+		},
+		{
+			"url": "common/animation/bone/ui_bao01/ui_bao01_ske.json",
+			"type": "json",
+			"name": "ui_bao01_ske_json"
+		}
+	]
+}

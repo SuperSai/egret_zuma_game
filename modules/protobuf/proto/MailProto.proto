@@ -1,0 +1,61 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "MailProtoMsg";
+
+// 领取附件奖励 ：500  <===客户端请求
+message MailItemMsg {
+	required int32 mailId = 1; // 邮件id
+}
+
+// 奖励展示列表 :15    =====>服务器推送
+message ItemResMsgList {
+	repeated ItemResMsg itemList = 1;
+	optional int32 activityId = 2;// 活动id
+}
+
+// 奖励结构
+message ItemResMsg {
+	required int32 itemId = 1;   // 物品id
+	required string num = 2; // 数量
+	required int32 type = 3; // 奖励类型 1-背包物品 2-雇佣兵 3-装备 4-激活技能 5-金身
+}
+
+// 邮件列表 8   =====>服务器推送
+message MailInfoListMsg {
+	repeated MailInfoMsg list = 1;// 邮件列表
+}
+
+// 单条邮件信息 9   =====>服务器推送
+message MailInfoMsg {
+	required int32 mailId = 1;   // 邮件ID
+	required int64 sendDate = 2; // 时间
+	required int32 senderUserId = 3; // 发送人用户ID
+	required string senderNickname = 4; // 发送人昵称
+	required int32 type = 5; // 类型
+	required string title = 6; // 标题
+	required string content = 7; // 内容
+	required bool read = 8; // 是否已读
+	required string itemList = 9;// 附件 R|1001#10|1002#3
+}
+
+// 阅读邮件 ：501  <===客户端请求
+message MailReadMsg {
+	required int32 mailId = 1; // 邮件id
+}
+
+// 一键领取 ：502  <===客户端请求
+message MailOneUpMsg {
+	required bool force = 2; // 是否强制领取
+}
+
+// 删除邮件 ：503  <===客户端请求
+message MailDeleteMsg {
+	required int32 mailId = 1; // 邮件id
+}
+
+// 删除邮件 ：16 =====>服务器推送
+message MailDeleteMsgSC {
+	required int32 mailId = 1; // 邮件id
+}
+
+

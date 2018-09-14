@@ -1,0 +1,16 @@
+{
+	"name": "md5",
+	"version": "5.0.12",
+	"modules": [
+		{
+			"name": "md5",
+			"description": "md5",
+			"files": [
+				"md5.min.js",
+				"md5.js",
+				"md5.d.ts"
+			],
+			"root": "src"
+		}
+	]
+}

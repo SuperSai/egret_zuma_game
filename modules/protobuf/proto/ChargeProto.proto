@@ -1,0 +1,76 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "ChargeProtoMsg";
+
+// 消耗钻石领取奖励 700 <=====客户端请求
+// 协议体：CommonMsg
+// 参数说明：intPar1:对应的id
+
+// 消耗钻石总数   655 <=====服务器推送
+// 协议体：CommonMsg
+// 参数说明：strPar1: 钻石数量
+
+// 已领取的宝箱id   656 <=====服务器推送
+message DiamondMsg {
+	repeated DiamondBoxList diamondBoxList = 1; //已领取的奖励id
+}
+
+message DiamondBoxList {
+	required int32 boxId = 1; //已领取的宝箱id
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+// 领取首充奖励 ：701 <====客户端请求
+// 协议体：空
+
+// 每日充值信息  650   ====>服务器推送
+message DayChargeMsg {
+	required int32 totalMoney = 1;  // 总充值
+	required int32 dayMoney = 2;    // 日充值
+	required bool lastAward = 3;    // 昨日奖励状态  true可领
+	required bool todayAward = 4;   // 今日奖励是否已领  true表示已经领取过
+	required bool firstAward = 5;   // 首充奖励状态
+}
+
+// 领取累计充值礼包 ：702 <====客户端请求
+// 协议体：CommonMsg
+// 参数说明：intPar1:档次 对应activityAward表中的awardType
+
+// 分档奖励状态  651   ====>服务器推送
+message ActivityAwardMsg {
+	required int32 activityType = 1;       // 活动类型
+	repeated int32 recievedAwardType = 2;  // 已领取的奖励类型
+}
+
+// 模拟充值 ：703 <====客户端请求
+// 协议体：CommonMsg
+// 参数说明：intPar1:产品id
+
+// 玩家首冲产品id:652  ====>服务器推送
+message PlayerFirstChargeMsg{
+	repeated int32 productIdList = 1;// 已充值过的产品id列表
+}
+
+// 充值信息：653  ====>服务器推送
+message ChargeMsg {
+	optional CardMsg card = 1;            // 月卡
+	required int32 goldAndDps = 2;    	  // 秒伤和金币掉落增加(百分比)
+	required int32 clickHurt = 3;  		  // 增加初始点击伤害
+	required int32 itemAdd = 4;           // 食材收益增加(百分比)
+	required int32 itemSub = 5;           // 料理消耗食材减少(百分比)
+}
+
+// 单条月卡信息 ：654 ====>服务器推送
+message CardMsg {
+	required int32 productId = 1;       // 产品id
+	required string validDate = 2;      // 到期时间（注：0表示永久）
+	repeated int32 privilegeIdList = 3; // 权限列表对应Privilege里面的privilegeType
+	required int32 awardId = 4;         // 奖励id
+	required bool dayAward = 5;         // 特权卡每日奖励 是否已领取 true表示已领
+}
+
+// 领取首充奖励 ：704 <====客户端请求
+// 协议体：空
+
+// 领取特权卡每日奖励 ：705 <====客户端请求
+// 协议体：空

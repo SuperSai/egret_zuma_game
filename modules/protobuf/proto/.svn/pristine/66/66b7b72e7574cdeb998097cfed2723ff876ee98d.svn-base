@@ -1,0 +1,103 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "FightProtoMsg";
+
+// 玩家信息   ====>服务器间通信
+message GamePlayerInfoMsg {
+	required int32 playerId = 1; // 玩家id
+	required string nickName = 2; // 昵称
+	required int32 level = 3; // 等级
+	required string headPic = 4; // 头像
+	required string remark = 5; // 简介
+	required int32 winNum = 6; //胜利次数
+}
+
+// 挑战者   ====>服务器间通信
+message ChallengeMsg {
+	repeated GamePlayerInfoMsg list = 1;  // 挑战者名单
+	required int32 gameId = 2; // 游戏id
+}
+
+// 开始匹配 100   <===客户端请求
+// 协议体：CommonMsg
+// 参数说明：intPar1:游戏id
+
+// 开始匹配:10001   ====>服务器推送
+// 协议体：空
+
+// pvp加载信息:10003 =====》服务器推送
+message PVPPlayerGameLoadingMsg {
+	repeated PVPPlayerGameHeros players = 1;
+}
+
+// pvp玩家信息
+message PVPPlayerGameHeros{
+	required int32 playerId = 1; // 玩家id
+	required int32 campType = 2; // 阵营
+	required string nickName = 3; // 昵称
+	required string headPic = 4; // 头像
+	required bool robot = 5; // 机器人
+	required int32 winNum = 6; //胜利场数
+}
+
+// 同步加载进度:10101   <===客户端请求
+// 协议体：CommonMsg
+// 参数说明：intPar1:已加载进度 100表示加载完毕
+
+// pvp加载进度:10004           =====》服务器推送
+message GameLoadingProcessMsg {
+	required int32 playerId = 1; // 玩家id
+	required int32 process = 2; //进度
+}
+
+// 开始游戏倒计时:10005   =====》服务器推送
+// 协议体：CommonMsg
+// 参数说明：intPar1:倒计时（单位毫秒）
+
+// 开始部署:10006   =====》服务器推送
+// 协议体：CommonMsg
+// 参数说明：intPar1:倒计时（单位毫秒）
+
+// 部署数据:10102   <===客户端请求
+// 协议体：CommonMsg
+// 参数说明：strPar1:部署数据，没有就发“YES”
+
+// 轮到哪位出手:10007   =====》服务器推送
+// 协议体：CommonMsg
+// 参数说明：intPar1:玩家id
+// 参数说明：intPar2:倒计时（单位毫秒）
+
+// 认输:10103   <===客户端请求
+// 协议体：空
+
+// 玩家出手:10104   <===客户端请求
+// 协议体：CommonMsg
+// 参数说明：strPar1:出手数据
+
+// 玩家出手:10008   =====》服务器推送
+// 协议体：CommonMsg
+// 参数说明：intPar1:玩家id
+// 参数说明：strPar1:出手数据
+
+// 游戏结算:10009   =====》服务器推送
+// 协议体：CommonMsg
+// 参数说明：intPar1:胜利方阵营campType
+
+// 机器人部署数据:10011   =====》服务器推送
+// 协议体：CommonMsg
+// 参数说明：intPar1:玩家id
+// 参数说明：strPar1:数据
+
+// 玩家起手动作:10105   <===客户端请求
+// 协议体：CommonMsg
+// 参数说明：strPar1:起手数据
+
+// 玩家起手动作:10012   =====》服务器推送
+// 协议体：CommonMsg
+// 参数说明：intPar1:玩家id
+// 参数说明：strPar1:数据
+
+// 挑战:102   <===客户端请求
+// 协议体：CommonMsg
+// 参数说明：strPar1:游戏id
+// 参数说明：strPar2:玩家id

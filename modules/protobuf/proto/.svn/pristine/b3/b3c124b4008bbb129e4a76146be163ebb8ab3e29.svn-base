@@ -1,0 +1,33 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "CommonProtoMsg";
+
+// 通用协议体
+message CommonMsg{
+	//整型参数
+	optional int32 intPar1 = 1;
+	optional int32 intPar2 = 2;
+	optional int32 intPar3 = 3;
+
+	//字符型参数
+	optional string strPar1 = 4;
+	optional string strPar2 = 5;
+	optional string strPar3 = 6;
+
+	//布尔型参数
+	optional bool boolPar1 = 7;
+	optional bool boolPar2 = 8;
+	optional bool boolPar3 = 9;
+
+	//长整型参数
+	optional int64 longPar1 = 10;
+	optional int64 longPar2 = 11;
+	optional int64 longPar3 = 12;
+
+	optional int64 longPar4 = 13;
+
+	//浮点型参数
+	optional float floatPar1 = 14;
+	optional float floatPar2 = 15;
+	optional float floatPar3 = 16;
+}
