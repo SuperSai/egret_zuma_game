@@ -1,0 +1,8 @@
+{"file":"balls.png","frames":{
+"ball_4":{"x":0,"y":72,"w":32,"h":32,"offX":0,"offY":0,"sourceW":32,"sourceH":32},
+"ball_5":{"x":72,"y":36,"w":32,"h":32,"offX":0,"offY":0,"sourceW":32,"sourceH":32},
+"ball_6":{"x":36,"y":36,"w":32,"h":32,"offX":0,"offY":0,"sourceW":32,"sourceH":32},
+"ball_0":{"x":0,"y":36,"w":32,"h":32,"offX":0,"offY":0,"sourceW":32,"sourceH":32},
+"ball_1":{"x":72,"y":0,"w":32,"h":32,"offX":0,"offY":0,"sourceW":32,"sourceH":32},
+"ball_2":{"x":36,"y":0,"w":32,"h":32,"offX":0,"offY":0,"sourceW":32,"sourceH":32},
+"ball_3":{"x":0,"y":0,"w":32,"h":32,"offX":0,"offY":0,"sourceW":32,"sourceH":32}}}

@@ -1,0 +1,111 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "ShopProtoMsg";
+
+// 抽装备 452 <=====客户端请求
+// 协议体: CommonMsg
+// 参数说明：BoolPar1:是否五连抽
+
+// 抽装备 41 <=====服务端响应
+// 协议体: EquipMsg
+
+
+// 抽佣兵 453 <=====客户端请求
+// 协议体: CommonMsg
+// 参数说明：BoolPar1:是否五连抽
+
+// 抽装备 303 <=====服务端响应
+// 协议体: MercenaryDataListMsg
+
+// 抽皮肤 454 <=====客户端请求
+// 协议体: CommonMsg
+// 参数说明：BoolPar1:是否五连抽
+
+// 皮肤列表 110 <=====服务端响应
+message HeroSkinListMsg {
+	repeated HeroSkinMsg list = 1;
+}
+
+//穿上皮肤 457 <=====客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1:皮肤Id
+
+// 穿上皮肤 113 <=====服务端响应
+message HeroSkinMsg {
+	required int32 id  = 1; //皮肤id
+	required int32 num = 2; //数量
+	required bool state = 3; //是否穿戴
+	required bool isNewSkin = 4; //是否新皮肤
+}
+
+
+// 抽卡推送 753 <=====服务端响应
+// 协议体: MailProtoMsg.ItemResMsgList
+// 参数说明 : activityId 活动id
+// 协议体: MailProtoMsg.ItemResMsg
+// 参数说明 itemId   // 物品id
+// 参数说明 num    // 数量
+// 参数说明 type   // 奖励类型 1-背包物品 2-雇佣兵 3-装备 4-激活技能 5-金身
+
+// 免费抽卡状态 752 <======== 服务端推送
+message LotteryStateMsg {
+	required int32 adEquipNum = 1; // 广告装备次数
+	required int32 adSkinNum = 2; // 广告皮肤次数
+	required int32 adMercenaryNum = 3; // 广告佣兵次数
+	required int32 freeEquipNum = 4; // 免费装备次数
+	required int32 freeSkinNum = 5; // 免费皮肤次数
+	required int32 freeMercenaryNum = 6; // 免费佣兵次数
+	required int32 halfEquipNum = 7; //半价装备次数
+	required int32 halfSkinNum = 8; //半价皮肤次数
+	required int32 halfMercenaryNum = 9; //半价佣兵次数
+}
+
+// 物品领取状态 17  <======== 服务端推送
+message ActivityItemStateMsg {
+	required int32 activityId = 1; // 活动Id
+	required string receiveState = 2; //领取状态
+}
+// 抽卡初始化754  ========> 服务端推送
+// 协议体: ActivityItemStateMsg
+
+// 物品领取状态 458  ========> 客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1:唯一Id
+// 参数说明：strPar1:位置
+
+// 物品修改状态 459  ========> 客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1:活动Id
+// 参数说明：intPar2:物品Id
+
+// 同步抽卡位置 460  ========> 客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1:唯一Id
+// 参数说明：intPar2:物品Id
+// 参数说明：strPar1:位置
+
+// 领取累计抽卡奖励 461  <======== 客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1:活动Id
+// 参数说明：intPar2:抽卡次数
+
+// 累计抽卡列表数据 755 ========> 服务端推送
+message KeepLotteryListMsg {
+	repeated KeepLotteryMsg keepLotteryList = 1; // 累计抽卡数据
+}
+
+// 累计抽卡数据
+message KeepLotteryMsg {
+	required int32 activityId = 1;       // 活动id
+	required int32 lotteryNum = 2;       // 累计抽卡次数
+	repeated int32 recievedList = 3;     // 已领取的列表
+}
+
+// 领取累计抽卡奖励 462  <======== 客户端请求
+// 协议体: 空
+// 参数说明：空
+
+// 每日限购 756  ========> 服务端推送
+// 协议体: CommonMsg
+// 参数说明：intPar1: ActivityAwardId
+// 参数说明：boolPar1:购买状态

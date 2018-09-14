@@ -1,0 +1,7 @@
+{"file":"button.png","frames":{
+"btn_close":{"x":440,"y":0,"w":51,"h":51,"offX":0,"offY":1,"sourceW":51,"sourceH":52},
+"btn_open_01":{"x":366,"y":52,"w":70,"h":48,"offX":0,"offY":0,"sourceW":70,"sourceH":48},
+"btn_open_02":{"x":366,"y":0,"w":70,"h":48,"offX":0,"offY":0,"sourceW":70,"sourceH":48},
+"btn_big_01":{"x":0,"y":70,"w":179,"h":66,"offX":0,"offY":0,"sourceW":179,"sourceH":66},
+"btn_big_02":{"x":183,"y":0,"w":179,"h":66,"offX":0,"offY":0,"sourceW":179,"sourceH":66},
+"btn_big_03":{"x":0,"y":0,"w":179,"h":66,"offX":0,"offY":0,"sourceW":179,"sourceH":66}}}

@@ -1,0 +1,37 @@
+{
+	"skins": {
+		"eui.Button": "resource/gameSkins/eui_skins/ButtonSkin.exml",
+		"eui.CheckBox": "resource/gameSkins/eui_skins/CheckBoxSkin.exml",
+		"eui.HScrollBar": "resource/gameSkins/eui_skins/HScrollBarSkin.exml",
+		"eui.HSlider": "resource/gameSkins/eui_skins/HSliderSkin.exml",
+		"eui.Panel": "resource/gameSkins/eui_skins/PanelSkin.exml",
+		"eui.TextInput": "resource/gameSkins/eui_skins/TextInputSkin.exml",
+		"eui.ProgressBar": "resource/gameSkins/eui_skins/ProgressBarSkin.exml",
+		"eui.RadioButton": "resource/gameSkins/eui_skins/RadioButtonSkin.exml",
+		"eui.Scroller": "resource/gameSkins/eui_skins/ScrollerSkin.exml",
+		"eui.ToggleSwitch": "resource/gameSkins/eui_skins/ToggleSwitchSkin.exml",
+		"eui.VScrollBar": "resource/gameSkins/eui_skins/VScrollBarSkin.exml",
+		"eui.VSlider": "resource/gameSkins/eui_skins/VSliderSkin.exml",
+		"eui.ItemRenderer": "resource/gameSkins/eui_skins/ItemRendererSkin.exml"
+	},
+	"autoGenerateExmlsList": true,
+	"exmls": [
+		"resource/skins/battle/BattleUIViewSkin.exml",
+		"resource/skins/eui_skins/ButtonSkin.exml",
+		"resource/skins/eui_skins/CheckBoxSkin.exml",
+		"resource/skins/eui_skins/HScrollBarSkin.exml",
+		"resource/skins/eui_skins/HSliderSkin.exml",
+		"resource/skins/eui_skins/ItemRendererSkin.exml",
+		"resource/skins/eui_skins/PanelSkin.exml",
+		"resource/skins/eui_skins/ProgressBarSkin.exml",
+		"resource/skins/eui_skins/RadioButtonSkin.exml",
+		"resource/skins/eui_skins/ScrollerSkin.exml",
+		"resource/skins/eui_skins/TextInputSkin.exml",
+		"resource/skins/eui_skins/ToggleSwitchSkin.exml",
+		"resource/skins/eui_skins/VScrollBarSkin.exml",
+		"resource/skins/eui_skins/VSliderSkin.exml",
+		"resource/skins/loading/LoadingUISkin.exml",
+		"resource/skins/login/LoginSkin.exml"
+	],
+	"path": "resource/config/default.thm.json"
+}

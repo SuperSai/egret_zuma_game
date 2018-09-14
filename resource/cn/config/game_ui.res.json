@@ -1,0 +1,42 @@
+{
+	"groups": [
+		{
+			"keys": "login_json",
+			"name": "login"
+		},
+		{
+			"keys": "balls_json,battle_json",
+			"name": "battle"
+		},
+		{
+			"keys": "icons_json",
+			"name": "hall"
+		}
+	],
+	"resources": [
+		{
+			"url": "cn/asset/atlas/login/login.json",
+			"type": "sheet",
+			"name": "login_json",
+			"subkeys": "login_name_icon,login_saizi,login_startBtn"
+		},
+		{
+			"url": "cn/asset/atlas/battle/balls.json",
+			"type": "sheet",
+			"name": "balls_json",
+			"subkeys": "ball_0,ball_1,ball_2,ball_3,ball_4,ball_5,ball_6"
+		},
+		{
+			"url": "cn/asset/atlas/battle/battle.json",
+			"type": "sheet",
+			"name": "battle_json",
+			"subkeys": "device"
+		},
+		{
+			"url": "cn/asset/atlas/hall/icons.json",
+			"type": "sheet",
+			"name": "icons_json",
+			"subkeys": "icons"
+		}
+	]
+}

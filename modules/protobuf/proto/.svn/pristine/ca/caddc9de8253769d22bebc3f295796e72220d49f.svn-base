@@ -1,0 +1,69 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "ChatProtoMsg";
+
+// 聊天协议 050  <===客户端请求
+message CSChatProtoMsg {
+	required int32 type = 1;   		   // 1:世界聊天 2：私聊
+	required string content = 2;       // 内容
+	optional int32 sendToPlayerId = 3; // 私聊玩家的id
+
+}
+
+// 聊天协议 050  ====>服务器推送
+message SCChatProtoMsg {
+	required int32 type = 1;          // 1:世界聊天 2：私聊
+	required string content = 2;      // 内容
+	required int32 playerId = 3;      // 发送者id
+	required string nickName = 4;     // 发送者昵称
+	required string headPic = 5;       // 发送者头像
+	optional int32 sendToPlayerId = 7;// 发送对象的id
+}
+
+// 世界聊天默认消息列表  051 ====>服务器推送
+message WorldChatDefMsgList {
+	repeated SCChatProtoMsg list = 1;// 消息列表
+}
+
+
+// 系统跑马灯 54 ====>服务器推送
+message SystemNoticeMsg {
+	required int32 type = 1;   		   // 系统公告类型
+	repeated string params = 2;		   // 动态参数
+}
+
+// 弹幕: 51  <===客户端请求
+// 协议体: CommonMsg
+// 参数: strPar1 : 内容
+
+// 弹幕   ====> 52 服务器推送
+message BarrageMsg {
+	required int32 playerId = 1;      // 发送者id
+	required string nickName = 2;     // 发送者昵称
+	required string headPic = 3;       // 发送者头像
+	required string content = 4;      // 内容
+}
+
+// 弹幕消息列表  ====> 53 服务器推送
+message BarrageMsgList {
+	repeated BarrageMsg list = 1;// 消息列表
+}
+
+// 卡片消息 ===> 35 服务端推送
+message CardGameListMsg {
+	repeated CardGameMsg cardGameMsg = 1; //游戏列表
+}
+message CardGameMsg {
+	required int32 gameId = 1;  // 游戏唯一id
+	required string name = 2;   // 游戏名
+	required string iconPath = 3;// 游戏图标
+	optional int32 totalNum = 4; //总次数(排序用)
+}
+
+// 游戏名片信息组装 52 <===客户端请求
+//协议体: 空
+// 参数: 空
+
+// 卡片消息 ===> 35 服务端推送
+//协议体: CardGameListMsg
+

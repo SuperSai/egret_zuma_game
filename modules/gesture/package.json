@@ -1,0 +1,16 @@
+{
+	"name": "greensock",
+	"version": "5.0.12",
+	"modules": [
+		{
+			"name": "greensock",
+			"description": "greensock",
+			"files": [
+				"greensock.min.js",
+				"greensock.js",
+				"greensock.d.ts"
+			],
+			"root": "src"
+		}
+	]
+}

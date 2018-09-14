@@ -1,0 +1,43 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "ActivityProtoMsg";
+
+// 活动开放时间列表 750  ======>服务端推送
+message ActivityOpenListMsg {
+	repeated ActivityOpenMsg list = 1;
+	required int32 loginDayNum = 2; // 活动开放第几天
+}
+
+message ActivityOpenMsg {
+	required int32 activityId = 1; // 活动id
+	required string endTime = 2;   // 限时抽卡结束时间
+}
+
+// 七天签到:652   <===客户端请求
+// 协议结构：空
+
+// 玩家签到信息   701 =====>服务器推送
+message PlayerSignMsg {
+	required bool signState = 1; // 今日是否签到
+	required int32 signNum = 2; // 已签到数
+	required int32 absenceNum = 3; // 可签到数
+}
+
+// 看广告领取奖励 :655   <===客户端请求
+// 协议体：CommonMsg
+// 参数说明：intPar1:活动Id
+
+// 已完成的活动 :656   <===客户端请求
+// 协议体：ActivityStateMsg
+
+// 已完成的活动消息    757 =====>服务器推送
+message ActivityStateListMsg {
+	repeated ActivityStateMsg list = 1; // 活动列表
+}
+
+// 活动状态
+message ActivityStateMsg {
+	required int32 activityId = 1; // 活动id
+	required int32 state = 2;      // 状态
+}
+

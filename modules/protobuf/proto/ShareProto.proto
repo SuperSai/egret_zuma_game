@@ -1,0 +1,18 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "ShareProtoMsg";
+
+// 分享 750 =====> 客户端请求
+// 协议体：CommonMsg
+// 参数说明：intPar1:分享Id
+
+
+// 领取分享奖励 751 =====> 客户端请求
+// 协议体：
+// 参数说明：
+
+
+// 分享次数推送 751 =====> 服务端推送
+// 协议体：CommonMsg
+// 参数说明：intPar1:分享次数
+// 参数说明: boolPar1 : 奖励是否已领取

@@ -1,0 +1,18 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "NewbieProtoMsg";
+
+// 引导列表 22    =====>服务器推送
+message NewbiewListMsg {
+	repeated NewbiewMsg list = 1;
+}
+
+// 新手引导：600   <===客户端请求
+message NewbiewMsg {
+	required int32 type = 1;   		// 模块类型
+	required int32 stepId = 2;       // 第几步
+	required string param = 3;       // 附加参数
+}
+
+// 单个新手引导更新 :23  =====>服务器推送
+// 协议体：NewbiewMsg

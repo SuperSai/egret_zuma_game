@@ -1,0 +1,255 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "PlayerProtoMsg";
+
+// 玩家登录 1   <===客户端请求
+// 协议体：CommonMsg
+// 参数说明：intPar1:玩家id
+// 参数说明：strPar1:昵称
+// 参数说明：strPar2:头像
+
+//============ 心跳包协议==========================
+// 1.客户端请求 02 <=====客户端请求
+//	  协议体：空
+// 2.服务器推送 011  ====>服务器推送
+//   协议体：CommonMsg
+//   参数说明：stringPar1:服务器时间戳
+//===============================================
+
+// 更改用户信息 ====> 003
+message AccountMsg {
+	required string nickName = 1; // 昵称
+	required string birth = 2;    //生日
+	required string remark = 3;   //个人简介
+}
+
+// 查询对象详情  ====> 007 客户端请求
+// 协议体: CommonMsg
+// 参数说明：strPar1: 头像数据
+
+// 查询对象详情  ====> 004 客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 玩家id
+
+// 查询对象详情 ===> 31 服务器推送
+// 协议体: AccountInfoMsg
+
+// 查询对象详情(游戏列表) ===> 32 服务器推送
+// 协议体: GameListMsg
+
+// 上传头像成功  33  ====> 服务器推送
+// 协议体：CommonMsg
+// 参数说明：strPar1:头像数据
+
+// 用户信息  ===> 30 服务端推送
+message AccountInfoMsg {
+	required string nickName = 1; // 昵称
+	required int32 playerId = 2;    // 账号
+	required string headPic = 3;    // 头像url
+	required int32 missionId = 4;   // 关卡id
+	required int32 process = 5;     // 关卡进度
+	required int32 onlineTime = 6; //转生后在线时长
+	required string clientSet = 7; // 客户端设置
+	required int32 currentMissionId = 8; // 当前missionId
+	required int32 HighestMissionId = 9; // 历史最高missionId
+	required bool heroSwitchSet = 10; //角色切换设置
+//	required string archivementClickHurt = 8; // 成就点击伤害
+}
+
+// 加入他们 ：06 <=====客户端请求
+// 协议体：空
+
+// 加入成功：28  ====>服务器推送
+// 协议体：空
+
+// 匹配到聊天对象：29  ====>服务器推送
+// 协议体：AccountInfoMsg
+
+// 聊天匹配中的玩家列表27    =======>服务端推送
+message JoinThemList{
+	repeated AccountInfoMsg list = 1;
+}
+
+// 同步位置（经纬度） ：08 <=====客户端请求
+// 协议体：CommonMsg
+// 参数说明：floatPar1:维度
+// 参数说明：floatPar2:经度
+
+// 同步位置（经纬度）成功：36  ====>服务器推送
+// 协议体：空
+
+// 英雄列表 :37 ====>服务器推送
+message HeroListMsg {
+	repeated HeroMsg list = 1;
+}
+
+// 单个英雄 :38 ====>服务器推送
+message HeroMsg {
+	required int32 heroId = 1; // 英雄Id
+	required int32 level = 2; // 等级
+	required string skillState = 3; //技能激活状态
+	required int32 goldLevel = 4; //金身等级
+}
+
+// 英雄金身等级列表 :112 ====>服务器推送
+message HeroGoldListMsg {
+	repeated HeroGoldMsg list = 1;
+}
+message HeroGoldMsg {
+	required int32 heroId = 1; // 英雄Id
+	required int32 goldLevel = 2; //金身等级
+}
+
+// 英雄升级  ====> 009 客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 英雄id
+// 参数说明：intPar2: 升多少级
+
+// 英雄升级 ===> 38 服务器推送
+// 协议体: HeroMsg
+
+// 技能升级  ====> 010 客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 技能id
+
+// 技能升级 ===> 38 服务器推送
+// 协议体: HeroMsg
+
+// 所有技能升级  ====> 012 客户端请求
+// 协议体: 空
+// 参数说明：
+
+// 神器刷新  ====> 300 客户端请求
+// 协议体: 空
+// 参数说明：
+
+// 神器召唤  ====> 301 客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 神器id
+
+// 神器分解 ====> 302 客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 神器id
+// 参数说明：boolPar1: 是否消耗钻石摧毁
+
+
+// 神器召唤  ====> 304 客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 神器id
+// 参数说明：intPar2: 升几级
+
+// 神器列表 :39 ====>服务器推送
+message ArtifactListMsg {
+	repeated ArtifactMsg list = 1;
+}
+// 单个神器 :43 ====>服务器推送
+message ArtifactMsg {
+	required int32 artifactId = 1; // 神奇Id
+	required int32 level = 2; // 等级
+}
+
+// 添加装备  ====> 350 客户端请求
+// 协议体: 空
+// 参数说明：空
+
+// 升级装备  ====> 351 客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 装备Id
+
+// 分解装备 ====> 352 客户端请求
+// 协议体:
+// 参数说明：
+
+// 分解单个装备 ====> 354 客户端请求
+// 协议体: CommonMsg
+// 参数说明：intPar1: 装备id
+
+
+// 装备列表 : 42 ====>服务器推送
+message EquipListMsg {
+	repeated EquipMsg list = 1;
+}
+// 装备 : 41 ====>服务器推送
+message EquipMsg {
+	required int32 id = 1;       // 唯一id
+	required int32 equipId = 2; // 装备Id
+	required int32 level = 3; // 等级
+	required bool isWear = 4; // 是否佩戴
+	required int32 latticeId = 5; // 格子id
+	required string attributeId = 6; //属性列表Id
+	required int32 quality = 7; //品质
+	required string name = 8; //装备名称
+	required int32 destroyNum = 9;// 分解获得多少核心
+	required bool isNewEquip = 10; //是否是新装备
+}
+// 技能cd  44: ====>服务器推送
+message SkillCdListMsg {
+	repeated SkillCdMsg list = 1;
+}
+// 技能cd  45: ====>服务器推送
+message SkillCdMsg {
+	required int32 skillId = 1; // 技能Id
+	required string endTime = 2; // 结束时间
+	optional string effectEndTime = 3; //技能有效期结束时间
+}
+
+// 客户端设置 13   ====> 客户端请求
+// 协议体: CommonMsg
+// 参数说明：strPar1:客户端设置
+
+// 用户信息30  ===> 服务端推送
+
+// 转生后推送关卡 109   ====> 服务端响应
+// 协议体: CommonMsg
+// 参数说明：IntPar1:关卡
+
+// 总英魂数变化: 119   ====> 服务端响应
+// 协议体: CommonMsg
+// 参数说明：StrPar1:英魂数量
+
+// 技能cd清空 15   ====> 客户端请求
+// 协议体: CommonMsg
+// 参数说明：IntPar1:技能Id
+
+// 技能cd清空: 45   ====> 服务端响应
+// 协议体: SkillCdMsg
+
+//============ 商店协议==========================
+// 商品购买 450 <=====客户端请求
+// 协议体: CommonMsg
+// 参数说明：IntPar1:商品id
+
+// 购买时间流逝 451 <=====客户端请求
+// 协议体: CommonMsg
+// 参数说明：IntPar1:商品id
+
+
+
+// 穿上皮肤 457 <=====客户端请求
+// 协议体: CommonMsg
+// 参数说明：IntPar1:皮肤Id
+
+// 查询时间流逝 455 <=====客户端请求
+// 协议体: 空
+// 参数说明：空
+
+// 查询时间流逝 600 <=====服务端响应
+message QueryTimelapseListMsg {
+	repeated QueryTimelapse list = 1;
+}
+message QueryTimelapse {
+	required int32 buyId = 1; //商品id
+	required string goldNum = 2; //金币数量
+}
+
+// 查询快速转生获得的英魂: 456 <=====客户端请求
+// 协议体: 空
+// 参数说明：空
+
+// 查询快速转生获得的英魂:601 <=====服务端响应
+// 协议体: CommonMsg
+// 参数说明：strPar1:英魂数量
+
+// 抽皮肤 38 <=====服务端响应
+// 协议体: HeroMsg
+//===============================================

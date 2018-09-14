@@ -1,0 +1,5 @@
+﻿{
+"titles":["itemId","type","name","icon","quality","isShow","description","relationId"],
+"data":[[1,1,"金币","1",1,1,"一种货币，可以用于雇佣和升级角色。",0],
+[2,1,"钻石","2",4,1,"一种货币，可以用来购买各种便利服务。",0]]
+}

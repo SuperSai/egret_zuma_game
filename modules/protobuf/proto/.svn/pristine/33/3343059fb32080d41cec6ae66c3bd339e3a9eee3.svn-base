@@ -1,0 +1,29 @@
+package protocol;
+option java_package = "com.game.protobuf";
+option java_outer_classname = "InviteMsg";
+
+// 领取邀请奖励 850 <==========客户端请求
+// 协议体: CommonMsg
+// 参数: StrPar1 // 好友的userName
+
+// 查询邀请的好友状态 851 <==========客户端请求
+// 协议体:
+// 参数:
+
+// 查询邀请的好友状态 114 ==========> 服务端响应
+message InviteFriendListMsg {
+	repeated InviteFriendMsg list = 1;
+}
+message InviteFriendMsg {
+	required string userName = 1; // 好友的userName
+	required string nickName = 2; //昵称
+	required string headPic = 3; //头像
+	required int32 missionId = 4; //关卡数
+	required string awardState = 5; //奖励领取状态
+}
+
+// 邀请好友 852 <========客户端请求
+message InviteUserNamesMsg {
+	repeated string userNameList = 1; //userName列表
+}
+
