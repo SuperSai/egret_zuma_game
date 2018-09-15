@@ -24,6 +24,7 @@ var RegisterManager = (function (_super) {
         App.ControllerManager.register(ControllerConst.Login, new LoginController());
         App.ControllerManager.register(ControllerConst.Battle, new BattleController());
         App.ControllerManager.register(ControllerConst.Hall, new HallController());
+        App.ControllerManager.register(ControllerConst.Level, new LevelController());
     };
     return RegisterManager;
 }(BaseClass));

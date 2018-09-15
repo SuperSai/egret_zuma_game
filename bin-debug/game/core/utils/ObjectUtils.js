@@ -96,6 +96,17 @@ var ObjectUtils = (function () {
         }
         return result;
     };
+    ObjectUtils.splitLevelMapPoints = function (value, separater) {
+        if (separater === void 0) { separater = "#"; }
+        if (value == null)
+            return [];
+        var points = [];
+        var sValue = ObjectUtils.splitToString(value);
+        for (var i = 0; i < sValue.length; i++) {
+            points.push(ObjectUtils.converToPoint(sValue[i]));
+        }
+        return points;
+    };
     ObjectUtils.converToPoint = function (value, separater) {
         if (separater === void 0) { separater = ","; }
         if (value == null)

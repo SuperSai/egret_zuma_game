@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="LevelViewSkin" width="720" height="1280" xmlns:e="http://ns.egret.com/eui">
+<e:Skin class="LevelViewSkin" width="720" height="1280" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*">
+	<e:Group id="levelMapGroup" left="0" right="0" top="0" bottom="0">
+	</e:Group>
+	<e:Group id="btn_stars" left="15" top="14" name="btn_stars_1#1" touchChildren="false">
+		<e:Image source="level_json.level_king_star" left="0" top="0"/>
+		<e:Label id="txt_starCount" text="20" fontFamily="Microsoft YaHei" bold="true" textAlign="center" horizontalCenter="0" bottom="16" textColor="0xffffff" stroke="2" strokeColor="0xbf9e57"/>
+	</e:Group>
+	<ns1:ChapterNextButton id="btn_next" skinName="ChapterNextButtonSkin" horizontalCenter="0" top="0"/>
+	<ns1:ChapterUpButton id="btn_up" skinName="ChapterUpButtonSkin" horizontalCenter="0" bottom="0"/>
 </e:Skin>

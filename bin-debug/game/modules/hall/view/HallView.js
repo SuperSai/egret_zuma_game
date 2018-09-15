@@ -20,6 +20,7 @@ var modules;
             function HallView($controller, $layer) {
                 var _this = _super.call(this, $controller, $layer) || this;
                 _this.skinName = SkinName.HallViewSkin;
+                _this.setResources(["hall"]);
                 return _this;
             }
             /** 对面板进行显示初始化，用于子类继承 */
@@ -56,6 +57,7 @@ var modules;
             /** 进入关卡选择界面 */
             HallView.prototype.onGotoCheckpoint = function () {
                 var self = this;
+                App.SceneManager.runScene(SceneConsts.LEVEL, 10000);
             };
             return HallView;
         }(BaseEuiView));

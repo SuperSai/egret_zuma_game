@@ -99,6 +99,7 @@ var Main = (function (_super) {
         App.SceneManager.register(SceneConsts.LOADING, new LoadingScene());
         App.SceneManager.register(SceneConsts.LOGIN, new LoginScene());
         App.SceneManager.register(SceneConsts.HALL, new HallScene());
+        App.SceneManager.register(SceneConsts.LEVEL, new LevelScene());
         App.SceneManager.register(SceneConsts.BATTLE, new BattleScene());
     };
     /** 初始化数据 */

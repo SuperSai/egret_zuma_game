@@ -97,6 +97,16 @@ class ObjectUtils {
         return result;
     }
 
+    public static splitLevelMapPoints(value: any, separater: string = "#"): egret.Point[] {
+        if (value == null) return [];
+        let points: egret.Point[] = [];
+        let sValue: string[] = ObjectUtils.splitToString(value);
+        for (let i: number = 0; i < sValue.length; i++) {
+            points.push(ObjectUtils.converToPoint(sValue[i]));
+        }
+        return points;
+    }
+
     public static converToPoint(value: any, separater: string = ","): egret.Point {
         if (value == null) return null;
         let sValue: string[] = String(value).split(separater);
