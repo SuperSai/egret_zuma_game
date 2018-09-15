@@ -37,6 +37,7 @@ var GlobleData = (function (_super) {
         var self = this;
         self._totalStepCsvList.Add(GlobleData.LevelVO, LevelVO);
         self._totalStepCsvList.Add(GlobleData.BoneAnimationVO, BoneAnimationVO);
+        self._totalStepCsvList.Add(GlobleData.LevelMapVO, LevelMapVO);
     };
     // 解析初始数据表
     GlobleData.prototype.initStep = function () {
@@ -117,6 +118,7 @@ var GlobleData = (function (_super) {
     GlobleData.ServerConfigVO = "ServerConfig_json";
     GlobleData.BoneAnimationVO = "BoneAnimation_json";
     GlobleData.LevelVO = "Level_json";
+    GlobleData.LevelMapVO = "LevelMap_json";
     return GlobleData;
 }(egret.DisplayObject));
 __reflect(GlobleData.prototype, "GlobleData");

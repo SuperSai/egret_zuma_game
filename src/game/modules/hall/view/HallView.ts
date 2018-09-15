@@ -11,6 +11,7 @@ module modules.hall {
 		public constructor($controller: BaseController, $layer: number) {
 			super($controller, $layer);
 			this.skinName = SkinName.HallViewSkin;
+			this.setResources(["hall"]);
 		}
 
 		/** 对面板进行显示初始化，用于子类继承 */
@@ -48,6 +49,7 @@ module modules.hall {
 		/** 进入关卡选择界面 */
 		private onGotoCheckpoint(): void {
 			let self = this;
+			App.SceneManager.runScene(SceneConsts.LEVEL, 10000);
 		}
 	}
 }

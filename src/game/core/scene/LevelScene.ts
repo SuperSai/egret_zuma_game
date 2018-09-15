@@ -6,12 +6,12 @@ class LevelScene extends BaseScene {
 	/**
 	* 进入Scene调用
 	*/
-	public onEnter(): void {
+	public onEnter(...param: any[]): void {
 		super.onEnter();
 
-		//初始打开关卡界面
-		App.ViewManager.open(ViewConst.Level);
-
+		//参数
+		var mapId: number = param[0];
+		App.ControllerManager.applyFunc(ControllerConst.Level, LevelConst.LEVEL_INIT, mapId);
 		//播放背景音乐
 		// App.SoundManager.playBg("sound_bg");
 	}

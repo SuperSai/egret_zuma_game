@@ -56,6 +56,12 @@ declare class CurrencyViewSkin extends eui.Skin{
 }
 declare class HallViewSkin extends eui.Skin{
 }
+declare class ChapterNextButtonSkin extends eui.Skin{
+}
+declare class ChapterUpButtonSkin extends eui.Skin{
+}
+declare class LevelViewSkin extends eui.Skin{
+}
 declare class LoadingUISkin extends eui.Skin{
 }
 declare class LoginSkin extends eui.Skin{

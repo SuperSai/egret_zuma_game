@@ -1,0 +1,9 @@
+{"file":"level.png","frames":{
+"level_lock":{"x":385,"y":0,"w":86,"h":109,"offX":0,"offY":0,"sourceW":86,"sourceH":109},
+"level_star_0":{"x":0,"y":240,"w":63,"h":62,"offX":0,"offY":0,"sourceW":63,"sourceH":62},
+"level_star_1":{"x":67,"y":240,"w":63,"h":62,"offX":0,"offY":0,"sourceW":63,"sourceH":62},
+"level_btn_lock":{"x":0,"y":134,"w":186,"h":102,"offX":0,"offY":0,"sourceW":186,"sourceH":102},
+"level_btn_past":{"x":190,"y":134,"w":173,"h":98,"offX":0,"offY":0,"sourceW":173,"sourceH":98},
+"level_btn_self":{"x":190,"y":236,"w":171,"h":96,"offX":0,"offY":0,"sourceW":171,"sourceH":96},
+"level_chapter_icon":{"x":0,"y":0,"w":381,"h":130,"offX":0,"offY":0,"sourceW":381,"sourceH":130},
+"level_king_star":{"x":367,"y":134,"w":127,"h":126,"offX":0,"offY":1,"sourceW":128,"sourceH":128}}}

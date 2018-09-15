@@ -41,13 +41,13 @@ var UI;
             var soundType = name.split("#")[1];
             if (soundType) {
                 if (soundType == "1") {
-                    App.SoundManager.playEffect("");
+                    // App.SoundManager.playEffect("");
                 }
                 else if (soundType == "2") {
-                    App.SoundManager.playEffect("");
+                    // App.SoundManager.playEffect("");
                 }
                 else if (soundType === "3") {
-                    App.SoundManager.playEffect("");
+                    // App.SoundManager.playEffect("");
                 }
                 if (!btnType) {
                     btnType = 1;

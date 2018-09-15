@@ -11,6 +11,10 @@
 		{
 			"keys": "hall_json",
 			"name": "hall"
+		},
+		{
+			"keys": "level_json",
+			"name": "level"
 		}
 	],
 	"resources": [
@@ -37,6 +41,12 @@
 			"type": "sheet",
 			"name": "hall_json",
 			"subkeys": "hall_bg,hall_bg_down,hall_icon"
+		},
+		{
+			"url": "cn/asset/atlas/level/level.json",
+			"type": "sheet",
+			"name": "level_json",
+			"subkeys": "level_btn_lock,level_btn_past,level_btn_self,level_chapter_icon,level_king_star,level_lock,level_star_0,level_star_1"
 		}
 	]
 }

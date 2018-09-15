@@ -9,6 +9,9 @@ var SkinName = (function () {
     SkinName.BattleUIViewSkin = "resource/skins/battle/BattleUIViewSkin.exml";
     SkinName.CurrencyViewSkin = "resource/skins/hall/CurrencyViewSkin.exml";
     SkinName.HallViewSkin = "resource/skins/hall/HallViewSkin.exml";
+    SkinName.ChapterNextButtonSkin = "resource/skins/level/ChapterNextButtonSkin.exml";
+    SkinName.ChapterUpButtonSkin = "resource/skins/level/ChapterUpButtonSkin.exml";
+    SkinName.LevelViewSkin = "resource/skins/level/LevelViewSkin.exml";
     return SkinName;
 }());
 __reflect(SkinName.prototype, "SkinName");

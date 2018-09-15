@@ -9,6 +9,7 @@ enum ViewConst {
 	Task,
 	Daily,
 	Mail,
+	/** 关卡 */
 	Level,
 
 	Battle = 20000,

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ChapterUpButtonSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="level_json.level_chapter_icon" horizontalCenter="0" bottom="0"/>
+	<e:Label text="第二章节" fontFamily="Microsoft YaHei" bold="true" size="50" textAlign="center" textColor="0xFFFFFF" stroke="2" strokeColor="0x5196BA" id="txt_chapter" horizontalCenter="1.5" bottom="33"/>
+</e:Skin>

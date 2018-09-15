@@ -32,6 +32,9 @@
 		"resource/skins/eui_skins/VSliderSkin.exml",
 		"resource/skins/hall/CurrencyViewSkin.exml",
 		"resource/skins/hall/HallViewSkin.exml",
+		"resource/skins/level/ChapterNextButtonSkin.exml",
+		"resource/skins/level/ChapterUpButtonSkin.exml",
+		"resource/skins/level/LevelViewSkin.exml",
 		"resource/skins/loading/LoadingUISkin.exml",
 		"resource/skins/login/LoginSkin.exml"
 	],
