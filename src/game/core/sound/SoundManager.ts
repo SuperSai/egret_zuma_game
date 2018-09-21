@@ -1,12 +1,9 @@
 /**
- * Created by yangsong on 15-1-14.
  * Sound管理类
  */
 class SoundManager extends BaseClass {
-    /**
-     * 音乐文件清理时间
-     * @type {number}
-     */
+	
+	/** 音乐文件清理时间 */
 	public static CLEAR_TIME: number = 3 * 60 * 1000;
 
 	private effect: SoundEffects;
@@ -39,11 +36,9 @@ class SoundManager extends BaseClass {
      * 播放音效
      * @param effectName
      */
-	public playEffect(effectName: string): void {
-		if (!this.effectOn)
-			return;
-
-		this.effect.play(effectName);
+	public playEffect(effectId: string): void {
+		if (!this.effectOn) return;
+		this.effect.play(effectId);
 	}
 
     /**
@@ -52,9 +47,7 @@ class SoundManager extends BaseClass {
      */
 	public playBg(bgName: string): void {
 		this.currBg = bgName;
-		if (!this.bgOn)
-			return;
-
+		if (!this.bgOn) return;
 		this.bg.play(bgName);
 	}
 

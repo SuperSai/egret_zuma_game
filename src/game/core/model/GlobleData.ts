@@ -24,6 +24,7 @@ class GlobleData extends egret.DisplayObject {
 	public static BoneAnimationVO: string = "BoneAnimation_json";
 	public static LevelVO: string = "Level_json";
 	public static LevelMapVO: string = "LevelMap_json";
+	public static SoundVO: string = "Sound_json";
 
 
 	private initModel(): void {
@@ -52,7 +53,7 @@ class GlobleData extends egret.DisplayObject {
 		if (self._currParseCount >= self._needParseCount) {
 			self.removeEventListener(egret.Event.ENTER_FRAME, self.onEnterFrameLoader, self);
 			this._hasParasComplete = true;
-			GameEnterManager.Instance.setup();
+			App.GameEnterManager.setup();
 		}
 		else {
 			//一次解析两个文件
