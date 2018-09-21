@@ -1,5 +1,4 @@
 /**
- * Created by yangsong on 15-1-14.
  * 音效类
  */
 class SoundEffects extends BaseSound {
@@ -16,8 +15,8 @@ class SoundEffects extends BaseSound {
      * 播放一个音效
      * @param effectName
      */
-	public play(effectName: string): void {
-		var sound: egret.Sound = this.getSound(effectName);
+	public play(effectId: string): void {
+		let sound: egret.Sound = this.getSound(effectId);
 		if (sound) {
 			this.playSound(sound);
 		}
@@ -28,7 +27,7 @@ class SoundEffects extends BaseSound {
      * @param sound
      */
 	private playSound(sound: egret.Sound): void {
-		var channel: egret.SoundChannel = sound.play(0, 1);
+		let channel: egret.SoundChannel = sound.play(0, 1);
 		channel.volume = this._volume;
 	}
 

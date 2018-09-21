@@ -3,8 +3,6 @@ class App {
 	public static ProxyUserFlag: string = "";
 	/** 全局配置数据 */
 	public static GlobalData: any = null;
-	/** ProtoConfig */
-	public static ProtoConfig: any = null;
 
 	/** Http请求 */
 	public static get Http(): Http {
@@ -33,6 +31,10 @@ class App {
 	/** 语言包管理类 */
 	public static get LanguageManager(): LanguageManager {
 		return LanguageManager.Instance();
+	}
+	/** manager初始化类 */
+	public static get GameEnterManager(): GameEnterManager {
+		return GameEnterManager.Instance();
 	}
 	/** Effect工具类 */
 	public static get EffectUtils(): EffectUtils {
@@ -146,8 +148,6 @@ class App {
 		App.EgretExpandUtils.init();
 		//实例化Http请求
 		App.Http.initServer(App.GlobalData.HttpSerever);
-		//实例化ProtoBuf和Socket请求
-		App.ProtoConfig = RES.getRes(App.GlobalData.ProtoConfig);
 		// App.Socket.initServer(App.GlobalData.SocketServer, App.GlobalData.SocketPort, new ByteArrayMsgByProtobuf());
 	}
 }

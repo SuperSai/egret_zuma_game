@@ -19,14 +19,13 @@ class BaseSound {
      * 处理音乐文件的清理
      */
 	private dealSoundTimer(): void {
-		var currTime: number = egret.getTimer();
-		var keys = Object.keys(this._cache);
-		for (var i: number = 0, len = keys.length; i < len; i++) {
-			var key = keys[i];
+		let currTime: number = egret.getTimer();
+		let keys = Object.keys(this._cache);
+		for (let i: number = 0, len = keys.length; i < len; i++) {
+			let key = keys[i];
 			if (!this.checkCanClear(key))
 				continue;
 			if (currTime - this._cache[key] >= SoundManager.CLEAR_TIME) {
-				//console.log(key + "已clear")
 				delete this._cache[key];
 				RES.destroyRes(key);
 			}
@@ -39,7 +38,9 @@ class BaseSound {
      * @returns {egret.Sound}
      */
 	public getSound(key: string): egret.Sound {
-		var sound: egret.Sound = RES.getRes(key);
+		let vo: SoundVO = GlobleData.getData(GlobleData.SoundVO, Number(key));
+		if (vo == null) return null;
+		let sound: egret.Sound = RES.getRes(PathConfig.SoundPath + vo.file);
 		if (sound) {
 			if (this._cache[key]) {
 				this._cache[key] = egret.getTimer();
@@ -60,7 +61,7 @@ class BaseSound {
      * @param event
      */
 	private onResourceLoadComplete(data: any, key: string): void {
-		var index: number = this._loadingCache.indexOf(key);
+		let index: number = this._loadingCache.indexOf(key);
 		if (index != -1) {
 			this._loadingCache.splice(index, 1);
 			this._cache[key] = egret.getTimer();
