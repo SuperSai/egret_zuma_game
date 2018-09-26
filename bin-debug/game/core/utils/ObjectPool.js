@@ -2,6 +2,7 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
     p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
 };
 /**
+ * Created by yangsong on 2014/11/22.
  * 对象池类
  */
 var ObjectPool = (function () {
@@ -44,20 +45,19 @@ var ObjectPool = (function () {
      * @return Object
      *
      */
-    ObjectPool.pop = function (refKey) {
+    ObjectPool.pop = function (classZ, classKey) {
         var args = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            args[_i - 1] = arguments[_i];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            args[_i - 2] = arguments[_i];
         }
-        if (!ObjectPool._content[refKey]) {
-            ObjectPool._content[refKey] = [];
+        if (!ObjectPool._content[classKey]) {
+            ObjectPool._content[classKey] = [];
         }
-        var list = ObjectPool._content[refKey];
+        var list = ObjectPool._content[classKey];
         if (list.length) {
             return list.pop();
         }
         else {
-            var classZ = egret.getDefinitionByName(refKey);
             var argsLen = args.length;
             var obj;
             if (argsLen == 0) {
@@ -78,7 +78,7 @@ var ObjectPool = (function () {
             else if (argsLen == 5) {
                 obj = new classZ(args[0], args[1], args[2], args[3], args[4]);
             }
-            obj.ObjectPoolKey = refKey;
+            obj.ObjectPoolKey = classKey;
             return obj;
         }
     };
@@ -104,7 +104,7 @@ var ObjectPool = (function () {
             }
         }
         if (!obj) {
-            var classZ = egret.getDefinitionByName(refKey);
+            var classZ = refKey;
             obj = new classZ(extraKey);
             obj.extraKey = extraKey;
             obj.ObjectPoolKey = refKey;
@@ -139,9 +139,9 @@ var ObjectPool = (function () {
      * @param classZ Class
      * @param clearFuncName 清除对象需要执行的函数
      */
-    ObjectPool.clearClass = function (refKey, clearFuncName) {
+    ObjectPool.clearClass = function (classKey, clearFuncName) {
         if (clearFuncName === void 0) { clearFuncName = null; }
-        var list = ObjectPool._content[refKey];
+        var list = ObjectPool._content[classKey];
         while (list && list.length) {
             var obj = list.pop();
             if (clearFuncName) {
@@ -149,8 +149,8 @@ var ObjectPool = (function () {
             }
             obj = null;
         }
-        ObjectPool._content[refKey] = null;
-        delete ObjectPool._content[refKey];
+        ObjectPool._content[classKey] = null;
+        delete ObjectPool._content[classKey];
     };
     /**
      * 缓存中对象统一执行一个函数

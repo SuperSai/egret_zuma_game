@@ -25,7 +25,6 @@ var BaseSound = (function () {
             if (!this.checkCanClear(key))
                 continue;
             if (currTime - this._cache[key] >= SoundManager.CLEAR_TIME) {
-                //console.log(key + "已clear")
                 delete this._cache[key];
                 RES.destroyRes(key);
             }
@@ -37,7 +36,10 @@ var BaseSound = (function () {
      * @returns {egret.Sound}
      */
     BaseSound.prototype.getSound = function (key) {
-        var sound = RES.getRes(key);
+        var vo = GlobleData.getData(GlobleData.SoundVO, Number(key));
+        if (vo == null)
+            return null;
+        var sound = RES.getRes(PathConfig.SoundPath + vo.file);
         if (sound) {
             if (this._cache[key]) {
                 this._cache[key] = egret.getTimer();

@@ -5,7 +5,6 @@ class Log {
     /**
      * Debug_Log
      * @param messsage 内容
-     * @constructor
      */
 	public static trace(...optionalParams: any[]): void {
 		if (App.DebugUtils.isDebug) {

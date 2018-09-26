@@ -24,7 +24,7 @@ class GameConfig {
 		} else if (("" + ua.match(/ucbrower/i)) == "ucbrower") {
 			return "ucbrower";
 		} else {
-			LogManager.logFormat("未知系统类型");
+			Log.trace("未知系统类型");
 		}
 	}
 	//获得平台类型 如 微信、qqzone、qq、微博、校内、facebook

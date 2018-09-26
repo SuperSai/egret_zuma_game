@@ -195,7 +195,7 @@ class ByteSocket extends egret.EventDispatcher {
 
 	/** 服务器断开连接 */
 	private onSocketClose() {
-		LogManager.logFormat("服务器断开连接");
+		Log.trace("服务器断开连接");
 		this._isConnecting = false;
 
 		if (this._needReconnect) {
@@ -209,7 +209,7 @@ class ByteSocket extends egret.EventDispatcher {
 	/** 服务器连接成功 */
 	private onConnectHandler(): void {
 		let self = this;
-		LogManager.logFormat("服务器连接成功");
+		Log.trace("服务器连接成功");
 		self._reconnectCount = 0;
 		self._isConnecting = true;
 

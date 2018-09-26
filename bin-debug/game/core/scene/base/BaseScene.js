@@ -25,7 +25,6 @@ var BaseScene = (function () {
     };
     /**
      * 添加一个Layer到舞台
-     * @param layer
      */
     BaseScene.prototype.addLayer = function (layer) {
         if (layer instanceof BaseSpriteLayer) {
@@ -39,7 +38,6 @@ var BaseScene = (function () {
     };
     /**
      * 添加一个Layer到舞台
-     * @param layer
      */
     BaseScene.prototype.addLayerAt = function (layer, index) {
         if (layer instanceof BaseSpriteLayer) {
@@ -53,7 +51,6 @@ var BaseScene = (function () {
     };
     /**
      * 在舞台移除一个Layer
-     * @param layer
      */
     BaseScene.prototype.removeLayer = function (layer) {
         if (layer instanceof BaseSpriteLayer) {
@@ -67,7 +64,6 @@ var BaseScene = (function () {
     };
     /**
      * Layer中移除所有
-     * @param layer
      */
     BaseScene.prototype.layerRemoveAllChild = function (layer) {
         if (layer instanceof BaseSpriteLayer) {

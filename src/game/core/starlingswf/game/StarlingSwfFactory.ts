@@ -30,7 +30,7 @@ class StarlingSwfFactory extends BaseClass {
         if (this.swfAssetsNames.indexOf(name) != -1)
             return;
         if (swfData == null || spriteSheep == null) {
-            console.log("SWF加载失败:" + name);
+            Log.trace("SWF加载失败:" + name);
             return;
         }
         this.swfAssetsManager.addSpriteSheet(name, spriteSheep);
@@ -95,7 +95,7 @@ class StarlingSwfFactory extends BaseClass {
     public makeMc(name:string):StarlingSwfMovieClip {
         var mc:StarlingSwfMovieClip = <StarlingSwfMovieClip>StarlingSwfUtils.createMovie("mc_" + name, null, StarlingSwfMovieClip);
         if (mc == null) {
-            console.log("SWF创建失败: " + name);
+            Log.trace("SWF创建失败: " + name);
         }
         return mc;
     }

@@ -9,7 +9,6 @@ for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
 r.prototype = e.prototype, t.prototype = new r();
 };
 /**
- * Created by yangsong on 15-1-14.
  * Sound管理类
  */
 var SoundManager = (function (_super) {
@@ -33,10 +32,10 @@ var SoundManager = (function (_super) {
      * 播放音效
      * @param effectName
      */
-    SoundManager.prototype.playEffect = function (effectName) {
+    SoundManager.prototype.playEffect = function (effectId) {
         if (!this.effectOn)
             return;
-        this.effect.play(effectName);
+        this.effect.play(effectId);
     };
     /**
      * 播放背景音乐
@@ -110,10 +109,7 @@ var SoundManager = (function (_super) {
     SoundManager.prototype.getEffectVolume = function () {
         return this.effectVolume;
     };
-    /**
-     * 音乐文件清理时间
-     * @type {number}
-     */
+    /** 音乐文件清理时间 */
     SoundManager.CLEAR_TIME = 3 * 60 * 1000;
     return SoundManager;
 }(BaseClass));

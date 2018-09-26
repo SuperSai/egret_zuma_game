@@ -78,7 +78,7 @@ var TimerManager = (function (_super) {
         //先删除相同函数的计时
         this.remove(method, methodObj);
         //创建
-        var handler = ObjectPool.pop("TimerHandler");
+        var handler = ObjectPool.pop(TimerHandler, "TimerHandler");
         handler.userFrame = useFrame;
         handler.repeat = repeatCount == 0;
         handler.repeatCount = repeatCount;

@@ -9,7 +9,6 @@ for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
 r.prototype = e.prototype, t.prototype = new r();
 };
 /**
- * Created by yangsong on 15-1-14.
  * 音效类
  */
 var SoundEffects = (function (_super) {
@@ -24,8 +23,8 @@ var SoundEffects = (function (_super) {
      * 播放一个音效
      * @param effectName
      */
-    SoundEffects.prototype.play = function (effectName) {
-        var sound = this.getSound(effectName);
+    SoundEffects.prototype.play = function (effectId) {
+        var sound = this.getSound(effectId);
         if (sound) {
             this.playSound(sound);
         }

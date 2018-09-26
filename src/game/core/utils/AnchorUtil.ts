@@ -22,7 +22,7 @@ class AnchorUtil {
 
 	public static getAnchor(target: egret.DisplayObject): number {
 		if (target["anchorX"] != target["anchorY"]) {
-			console.log("target's anchorX != anchorY");
+			Log.trace("target's anchorX != anchorY");
 		}
 		return target["anchorX"] || 0;
 	}

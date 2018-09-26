@@ -60,6 +60,14 @@ var App = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(App, "GameEnterManager", {
+        /** manager初始化类 */
+        get: function () {
+            return GameEnterManager.Instance();
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(App, "EffectUtils", {
         /** Effect工具类 */
         get: function () {
@@ -266,16 +274,12 @@ var App = (function () {
         App.EgretExpandUtils.init();
         //实例化Http请求
         App.Http.initServer(App.GlobalData.HttpSerever);
-        //实例化ProtoBuf和Socket请求
-        App.ProtoConfig = RES.getRes(App.GlobalData.ProtoConfig);
         // App.Socket.initServer(App.GlobalData.SocketServer, App.GlobalData.SocketPort, new ByteArrayMsgByProtobuf());
     };
     /** 请求服务器使用的用户标识 */
     App.ProxyUserFlag = "";
     /** 全局配置数据 */
     App.GlobalData = null;
-    /** ProtoConfig */
-    App.ProtoConfig = null;
     return App;
 }());
 __reflect(App.prototype, "App");

@@ -117,7 +117,7 @@ class MessageCenter extends BaseClass {
 			return;
 		}
 
-		var vo: MessageVo = ObjectPool.pop("MessageVo");
+		var vo: MessageVo = ObjectPool.pop(MessageVo, "MessageVo");
 		vo.type = type;
 		vo.param = param;
 		if (this.type == 0) {

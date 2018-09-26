@@ -52,11 +52,11 @@ class ObjectUtils {
     }
 
     /** 数据列表拷贝 */
-    public static copyListToAnyInfo(values1: any[], className: string): any[] {
+    public static copyListToAnyInfo(values1: any[], classZ: any, className: string): any[] {
         if (!values1 || values1.length < 1) return null;
         let newList: any[] = [];
         values1.forEach((value: any, index: number) => {
-            let obj: any = ObjectPool.pop(className);
+            let obj: any = ObjectPool.pop(classZ, className);
             ObjectUtils.copyValue2(obj, value);
             newList.push(obj);
         });

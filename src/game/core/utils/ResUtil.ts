@@ -125,7 +125,6 @@ class ResUtil extends BaseClass {
 	private onResourceLoadComplete(event: RES.ResourceEvent): void {
 		var groupName: string = event.groupName;
 		if (!RES.isGroupLoaded(groupName)) {
-			// LogManager.warningFormat("assetManager 的 bug 多发出了一个事件！:" + groupName);
 			return;
 		}
 		let index: number = this._loadingGroups.indexOf(groupName);

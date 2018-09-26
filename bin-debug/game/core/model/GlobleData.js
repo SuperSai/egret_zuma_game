@@ -38,6 +38,7 @@ var GlobleData = (function (_super) {
         self._totalStepCsvList.Add(GlobleData.LevelVO, LevelVO);
         self._totalStepCsvList.Add(GlobleData.BoneAnimationVO, BoneAnimationVO);
         self._totalStepCsvList.Add(GlobleData.LevelMapVO, LevelMapVO);
+        self._totalStepCsvList.Add(GlobleData.SoundVO, SoundVO);
     };
     // 解析初始数据表
     GlobleData.prototype.initStep = function () {
@@ -57,7 +58,7 @@ var GlobleData = (function (_super) {
         if (self._currParseCount >= self._needParseCount) {
             self.removeEventListener(egret.Event.ENTER_FRAME, self.onEnterFrameLoader, self);
             this._hasParasComplete = true;
-            GameEnterManager.Instance.setup();
+            App.GameEnterManager.setup();
         }
         else {
             //一次解析两个文件
@@ -119,6 +120,7 @@ var GlobleData = (function (_super) {
     GlobleData.BoneAnimationVO = "BoneAnimation_json";
     GlobleData.LevelVO = "Level_json";
     GlobleData.LevelMapVO = "LevelMap_json";
+    GlobleData.SoundVO = "Sound_json";
     return GlobleData;
 }(egret.DisplayObject));
 __reflect(GlobleData.prototype, "GlobleData");
