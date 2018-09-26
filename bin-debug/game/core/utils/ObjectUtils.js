@@ -52,12 +52,12 @@ var ObjectUtils = (function () {
         }
     };
     /** 数据列表拷贝 */
-    ObjectUtils.copyListToAnyInfo = function (values1, className) {
+    ObjectUtils.copyListToAnyInfo = function (values1, classZ, className) {
         if (!values1 || values1.length < 1)
             return null;
         var newList = [];
         values1.forEach(function (value, index) {
-            var obj = ObjectPool.pop(className);
+            var obj = ObjectPool.pop(classZ, className);
             ObjectUtils.copyValue2(obj, value);
             newList.push(obj);
         });

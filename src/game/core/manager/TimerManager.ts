@@ -78,7 +78,7 @@ class TimerManager extends BaseClass {
 		this.remove(method, methodObj);
 
 		//创建
-		var handler: TimerHandler = ObjectPool.pop("TimerHandler");
+		var handler: TimerHandler = ObjectPool.pop(TimerHandler, "TimerHandler");
 		handler.userFrame = useFrame;
 		handler.repeat = repeatCount == 0;
 		handler.repeatCount = repeatCount;

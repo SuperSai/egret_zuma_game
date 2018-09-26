@@ -15,6 +15,26 @@ class TimeUtil {
         }
         return this._instance;
     }
+
+    /** 获取单一的当前时间 */
+    public static getCDTime(times: number): string {
+        if (times < 0) return;
+        let h: string = Math.floor(times / 1000 / 60 / 60).toString();
+        let m: string = Math.floor(times % (1000 * 3600) / (1000 * 60)).toString();
+        let s: string = Math.floor((times % (1000 * 60)) / 1000).toString();
+
+        if (Number(h) > 0) {
+            return h + "h";
+        }
+        else if (Number(m) > 0) {
+            return m + "m";
+        }
+        else if (Number(s) > 0) {
+            return s + "s";
+        }
+        return "0";
+    }
+
     /**
      * 时间毫秒转成小时
      * @param sec
@@ -56,6 +76,7 @@ class TimeUtil {
             return TimeUtil.S2H(times * 1000);
         }
     }
+    
     /** 获取小时 */
     public static getHours(times: number): number {
         if (times < 0) return;

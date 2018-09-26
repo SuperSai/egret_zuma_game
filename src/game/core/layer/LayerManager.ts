@@ -85,7 +85,7 @@ class LayerManager extends BaseClass {
 	}
 
 	public resize(): void {
-		LogManager.logFormat("【 LayerManager 】stageResized-------------");
+		Log.trace("【 LayerManager 】stageResized-------------");
 		let width: number = App.StageUtils.getWidth();
 		let height: number = App.StageUtils.getHeight();
 		for (let i: number = 0; i < this._layers.length; i++) {

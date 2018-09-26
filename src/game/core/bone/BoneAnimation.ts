@@ -30,11 +30,11 @@ class BoneAnimation extends egret.Sprite {
     public constructor(skeName: string) {
         super();
         this._skeName = skeName;
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone constructor {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone constructor {0}", BoneAnimation.traceID);
     }
 
     public play(complete: Function = null, thisObject: any = null): void {
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone play {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone play {0}", BoneAnimation.traceID);
         this._complete = complete;
         this._completeTarget = thisObject;
         this.addEventListener(BoneAnimation.LOAD_COMPLETE, this.playNow, this);
@@ -47,7 +47,7 @@ class BoneAnimation extends egret.Sprite {
     }
 
     private playNow(): void {
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone playNow {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone playNow {0}", BoneAnimation.traceID);
         if (this._isInPool) LogManager.warningFormat("{0} current is in pool must be not play", this._skeName);
         this.removeEventListener(BoneAnimation.LOAD_COMPLETE, this.playNow, this);
         if (this._currentAnimationName == "") this._currentAnimationName = this.getRandomAnimationName();
@@ -59,7 +59,7 @@ class BoneAnimation extends egret.Sprite {
     }
 
     public load() {
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone load start {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone load start {0}", BoneAnimation.traceID);
         App.ResUtil.loadGroup(this._skeName, this.loadComplete, this, ResUtil.PRIORITY_H);
     }
 
@@ -69,19 +69,19 @@ class BoneAnimation extends egret.Sprite {
     }
 
     private loadComplete(): void {
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone loadComplete start {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone loadComplete start {0}", BoneAnimation.traceID);
         this.armature = App.BoneManager.getArmature(this._skeName);
         this._isLoadComplete = true;
         this.addChild(this.armature.display);
         this.initBone();
         this.dispatchEvent(new egret.Event(BoneAnimation.LOAD_COMPLETE, true, true, this));
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone loadComplete createComplete {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone loadComplete createComplete {0}", BoneAnimation.traceID);
     }
     /*
     * 为对象池的引用添加一些预设
     * */
     public resetForPool() {
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone resetForPool {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone resetForPool {0}", BoneAnimation.traceID);
         this._isInPool = true;
         if (!this._isLoadComplete) return;
         this.armature.animation.stop();
@@ -93,7 +93,7 @@ class BoneAnimation extends egret.Sprite {
     }
 
     private playComplete() {
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone playComplete {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone playComplete {0}", BoneAnimation.traceID);
         this.armature.eventDispatcher.removeDBEventListener(dragonBones.EventObject.LOOP_COMPLETE, this.playComplete, this);
         if (this.isPauseAtLastFrame) {
             this.armature.animation.stop(this._currentAnimationName);
@@ -109,7 +109,7 @@ class BoneAnimation extends egret.Sprite {
 
     private onBoneRemove() {
         // 有时候会出现没有播放完成就remove的情况，所以这里还要再remove一次事件；
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone onBoneRemove {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone onBoneRemove {0}", BoneAnimation.traceID);
         this.armature.eventDispatcher.removeDBEventListener(dragonBones.EventObject.LOOP_COMPLETE, this.playComplete, this);
         this.armature.eventDispatcher.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.onFrameEventFired, this);
         this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.onBoneRemove, this);
@@ -119,7 +119,7 @@ class BoneAnimation extends egret.Sprite {
     }
 
     public initBone(): void {
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone initBone {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone initBone {0}", BoneAnimation.traceID);
         this._isInPool = false;
         if (this._isLoadComplete) this.armature.animation.timeScale = this._timeScale;
         if (this._isLoadComplete) this.armature.display.scaleX = this._direction;
@@ -129,14 +129,14 @@ class BoneAnimation extends egret.Sprite {
     }
 
     public gotoAndStopFrame(stopFrame: string = ""): void {
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone playNow {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone playNow {0}", BoneAnimation.traceID);
         this._currentAnimationName = stopFrame;
         if (this._currentAnimationName == "") this._currentAnimationName = this.getRandomAnimationName();
         this.armature.animation.gotoAndStopByFrame(this._currentAnimationName);
     }
 
     public gotoAndStopFrameExcept(name: string): void {
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone playNow {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone playNow {0}", BoneAnimation.traceID);
         this._currentAnimationName = this.getRandomAnimationNameExcept(name);
         this.armature.animation.gotoAndStopByFrame(this._currentAnimationName);
     }
@@ -291,7 +291,7 @@ class BoneAnimation extends egret.Sprite {
     }
 
     public dispose(): void {
-        if (this._skeName == BoneAnimation.traceID) LogManager.logFormat("LoadBone dispose {0}", BoneAnimation.traceID);
+        if (this._skeName == BoneAnimation.traceID) Log.trace("LoadBone dispose {0}", BoneAnimation.traceID);
         this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.onBoneRemove, this);
         if (this.armature) {
             this.armature.eventDispatcher.removeDBEventListener(dragonBones.EventObject.LOOP_COMPLETE, this.playComplete, this);

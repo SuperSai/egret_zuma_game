@@ -32,6 +32,7 @@ class GlobleData extends egret.DisplayObject {
 		self._totalStepCsvList.Add(GlobleData.LevelVO, LevelVO);
 		self._totalStepCsvList.Add(GlobleData.BoneAnimationVO, BoneAnimationVO);
 		self._totalStepCsvList.Add(GlobleData.LevelMapVO, LevelMapVO);
+		self._totalStepCsvList.Add(GlobleData.SoundVO, SoundVO);
 	}
 
 	// 解析初始数据表
@@ -39,12 +40,12 @@ class GlobleData extends egret.DisplayObject {
 		let self = this;
 		self._needParseCount = self._totalStepCsvList.GetLenght();
 		RES.getResAsync("json_zip", this.onloadDataComplete, self);
-		LogManager.logFormat("dataFile is json_zip");
+		Log.trace("dataFile is json_zip");
 	}
 	private onloadDataComplete(data: any, key: string): void {
 		let self = this;
 		self._csvZipData = new JSZip(data);
-		LogManager.logFormat("onloadDataComplete is json_zip:" + key);
+		Log.trace("onloadDataComplete is json_zip:" + key);
 		self.addEventListener(egret.Event.ENTER_FRAME, self.onEnterFrameLoader, self);
 	}
 

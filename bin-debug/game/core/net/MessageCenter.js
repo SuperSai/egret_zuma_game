@@ -117,7 +117,7 @@ var MessageCenter = (function (_super) {
         if (this.dict[type] == null) {
             return;
         }
-        var vo = ObjectPool.pop("MessageVo");
+        var vo = ObjectPool.pop(MessageVo, "MessageVo");
         vo.type = type;
         vo.param = param;
         if (this.type == 0) {

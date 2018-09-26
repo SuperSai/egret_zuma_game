@@ -56,7 +56,6 @@ class DebugUtils extends BaseClass {
 
 		var cha: number = egret.getTimer() - this._startTimes[key];
 		if (cha > this._threshold) {
-			console.log();
 			Log.trace(key + ": " + cha);
 		}
 		return cha;

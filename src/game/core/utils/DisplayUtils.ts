@@ -118,7 +118,7 @@ class DisplayUtils extends BaseClass {
         if (!container) return;
         for (let i: number = 0; i < container.numChildren; i++) {
             let child: egret.DisplayObject = container.getChildAt(i);
-            // LogManager.logFormat("traceAllChildren : item{0} : {1}",i,egret.getQualifiedClassName(child));
+            Log.trace("traceAllChildren : item{0} : {1}", i, egret.getQualifiedClassName(child));
         }
     }
 
@@ -138,10 +138,10 @@ class DisplayUtils extends BaseClass {
     public traceDisplayObjectWhyNotDisplay(display: egret.DisplayObject): void {
         if (display.parent != null) {
             if (this.ifIsDisplay(display) == false) {
-                console.log("显示出问题了");
+                Log.trace("显示出问题了");
             }
             this.traceDisplayObjectWhyNotDisplay(display.parent);
-            console.log(egret.getQualifiedClassName(display) + ", parent" + egret.getQualifiedClassName(display.parent));
+            Log.trace(egret.getQualifiedClassName(display) + ", parent" + egret.getQualifiedClassName(display.parent));
         }
     }
 

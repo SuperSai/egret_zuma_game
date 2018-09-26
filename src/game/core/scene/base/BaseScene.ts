@@ -29,7 +29,6 @@ class BaseScene {
 
     /**
      * 添加一个Layer到舞台
-     * @param layer
      */
 	public addLayer(layer: egret.DisplayObjectContainer): void {
 		if (layer instanceof BaseSpriteLayer) {
@@ -44,7 +43,6 @@ class BaseScene {
 
     /**
      * 添加一个Layer到舞台
-     * @param layer
      */
 	public addLayerAt(layer: egret.DisplayObjectContainer, index: number): void {
 		if (layer instanceof BaseSpriteLayer) {
@@ -59,7 +57,6 @@ class BaseScene {
 
     /**
      * 在舞台移除一个Layer
-     * @param layer
      */
 	public removeLayer(layer: egret.DisplayObjectContainer): void {
 		if (layer instanceof BaseSpriteLayer) {
@@ -74,7 +71,6 @@ class BaseScene {
 
     /**
      * Layer中移除所有
-     * @param layer
      */
 	public layerRemoveAllChild(layer: egret.DisplayObjectContainer): void {
 		if (layer instanceof BaseSpriteLayer) {

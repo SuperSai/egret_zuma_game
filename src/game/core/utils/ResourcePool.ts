@@ -23,7 +23,7 @@ class ResourcePool {
     private static Trace_ID: string = "tx_01";
 
     private static createOneByType(type: string, resId: string): any {
-        if (resId == ResourcePool.Trace_ID) LogManager.logFormat("ResourcePool . {0} : {1}", "createOneByType", resId);
+        if (resId == ResourcePool.Trace_ID) Log.trace("ResourcePool . {0} : {1}", "createOneByType", resId);
         switch (type) {
             case ResourcePool.SKE:
                 let ske = new BoneAnimation(resId);
@@ -77,7 +77,7 @@ class ResourcePool {
         if (pool[resId] == null) {
             pool[resId] = [];
         }
-        if (resId == ResourcePool.Trace_ID) LogManager.logFormat("ResourcePool . {0} : {1}", "pop", resId);
+        if (resId == ResourcePool.Trace_ID) Log.trace("ResourcePool . {0} : {1}", "pop", resId);
         let list: Array<any> = pool[resId];
         if (list.length > 0) {
             let item: any = list.pop();
@@ -96,10 +96,10 @@ class ResourcePool {
         if (obj == null) return;
         let pool = this.getPoolByType(type);
         if (pool[obj.name] == null) {
-            console.log("回收对象的数组不存在", obj.name);
+            Log.trace("回收对象的数组不存在", obj.name);
             return;
         }
-        if (obj.name == ResourcePool.Trace_ID) LogManager.logFormat("ResourcePool . {0} : {1}", "push", obj.name);
+        if (obj.name == ResourcePool.Trace_ID) Log.trace("ResourcePool . {0} : {1}", "push", obj.name);
         pool[obj.name].push(obj);
         //remove item
         let container: egret.DisplayObjectContainer = obj.parent as egret.DisplayObjectContainer;
@@ -119,7 +119,7 @@ class ResourcePool {
     public create(resId: string, type: string, num: number = 1) {
         let i;
         const list = [];
-        if (resId == ResourcePool.Trace_ID) LogManager.logFormat("ResourcePool . {0} : {1}  {2}", "create", resId, num);
+        if (resId == ResourcePool.Trace_ID) Log.trace("ResourcePool . {0} : {1}  {2}", "create", resId, num);
         for (i = 0; i < num; i++) {
             list.push(this.pop(resId, type));
         }
@@ -157,7 +157,7 @@ class ResourcePool {
      */
     public clear(resId: string, type: string, funName: string = "dispose") {
         let pool = this.getPoolByType(type);
-        if (resId == ResourcePool.Trace_ID) LogManager.logFormat("ResourcePool . {0} : {1}  {2}", "clear", resId, type);
+        if (resId == ResourcePool.Trace_ID) Log.trace("ResourcePool . {0} : {1}  {2}", "clear", resId, type);
         if (resId == "") {
             for (let key in pool) {
                 clearItem(pool[key]);
@@ -192,16 +192,16 @@ class ResourcePool {
     }
 
     public printAll() {
-        LogManager.logFormat("Start Print All Resource-------------");
+        Log.trace("Start Print All Resource-------------");
         let allCount: number = 0;
         for (let key in this.main) {
-            LogManager.logFormat("Start Print All Resource by type : " + key + "==================");
+            Log.trace("Start Print All Resource by type : " + key + "==================");
             for (let pKey in this.main[key]) {
                 let length: number = this.main[key][pKey].length;
-                LogManager.logFormat("key :" + pKey + "  count:" + length);
+                Log.trace("key :" + pKey + "  count:" + length);
                 allCount += length;
             }
         }
-        LogManager.logFormat("Start Print All Resource count : " + allCount + "==================");
+        Log.trace("Start Print All Resource count : " + allCount + "==================");
     }
 }
